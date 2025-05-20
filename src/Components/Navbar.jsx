@@ -44,7 +44,7 @@ const Navbar = () => {
                 <NavLink to="/addtask">My-Posted-Tasks</NavLink>
               </div>
             </div>
-            <div className="hidden md:flex items-center">
+            <div className="hidden md:flex items-center *:font-semibold">
               <div className="nav-right space-x-4 *:font-semibold">
                 <NavLink to="/signin" className="btn text-gray-700 hover:text-gray-900 transition-colors">Sign In</NavLink>
                 <NavLink to="/signup" className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>

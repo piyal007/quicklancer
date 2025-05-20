@@ -9,43 +9,44 @@ import Swal from 'sweetalert2';
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordErrors, setPasswordErrors] = useState({
-    uppercase: false,
-    lowercase: false,
-    length: false
-  });
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
-  const validatePassword = (password) => {
-    const hasUpperCase = /[A-Z]/.test(password);
-    const hasLowerCase = /[a-z]/.test(password);
-    const isLongEnough = password.length >= 6;
-
-    setPasswordErrors({
-      uppercase: !hasUpperCase,
-      lowercase: !hasLowerCase,
-      length: !isLongEnough
-    });
-
-    return hasUpperCase && hasLowerCase && isLongEnough;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validatePassword(password)) return;
-
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       if (result.user) {
         Swal.fire({
           icon: 'success',
-          title: 'Success!',
-          text: 'Successfully signed in!',
+          title: 'Welcome back! 👋',
+          text: 'You have successfully signed in to your account.',
+          showConfirmButton: false,
+          timer: 2000
         });
         navigate('/');
       }
     } catch (error) {
-      toast.error(error.message);
+      let errorMessage = 'An error occurred during sign in';
+
+      if (error.code === 'auth/user-not-found') {
+        errorMessage = 'No account found with this email address';
+      } else if (error.code === 'auth/wrong-password') {
+        errorMessage = 'Incorrect password. Please try again';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMessage = 'Please enter a valid email address';
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMessage = 'Too many failed attempts. Please try again later';
+      }
+
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -58,8 +59,10 @@ const SignIn = () => {
       if (result.user) {
         Swal.fire({
           icon: 'success',
-          title: 'Success!',
-          text: 'Successfully signed in with Google!',
+          title: 'Welcome!',
+          text: 'You have successfully signed in with Google.',
+          showConfirmButton: false,
+          timer: 2000
         });
         navigate('/');
       }
@@ -98,22 +101,8 @@ const SignIn = () => {
               value={password}
               className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
               required
-              onChange={(e) => {
-                setPassword(e.target.value);
-                validatePassword(e.target.value);
-              }}
-              onFocus={() => setIsPasswordFocused(true)}
-              onBlur={() => setIsPasswordFocused(false)}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="mt-2">
-              {isPasswordFocused && (passwordErrors.uppercase || passwordErrors.lowercase || passwordErrors.length) && (
-                <p className="text-xs text-red-500"><span>Password must be </span>
-                  {[passwordErrors.uppercase && 'a uppercase letter', passwordErrors.lowercase && 'a lowercase letter', passwordErrors.length && '6+ characters long']
-                    .filter(Boolean)
-                    .join(', ')}
-                </p>
-              )}
-            </div>
           </div>
 
           <button
