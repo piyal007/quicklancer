@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-gray-100 shadow-md">
+      <div className="bg-gray-50 shadow-md">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
