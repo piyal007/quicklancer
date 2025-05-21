@@ -7,6 +7,7 @@ import Error from "../Pages/Error";
 import AddTask from "../Pages/AddTask";
 import BrowseTask from "../Pages/BrowseTask";
 import MyPostedTask from "../Pages/MyPostedTask";
+import UpdateTask from "../Pages/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "mypostedtask",
         Component: MyPostedTask
+      },
+      {
+        path: "update-task/:id",
+        Component: UpdateTask
       }
     ],
   },
