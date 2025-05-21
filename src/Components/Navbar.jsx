@@ -31,7 +31,9 @@ const Navbar = () => {
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
-              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho">QuickLancer</h2>
+              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho">
+                QuickLancer
+              </h2>
             </div>
 
             {/* Hamburger Menu Button */}
@@ -62,7 +64,7 @@ const Navbar = () => {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/addtask">Add-Task</NavLink>
                 <NavLink to="/browsetask">Browse-Tasks</NavLink>
-                <NavLink to="/postedtask">My-Posted-Tasks</NavLink>
+                <NavLink to="/mypostedtask">My-Posted-Tasks</NavLink>
               </div>
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
@@ -71,7 +73,10 @@ const Navbar = () => {
                   <div className="flex items-center gap-4">
                     <div className="relative group z-50">
                       <img
-                        src={user.photoURL || 'https://i.ibb.co/G2jQXGk/default-avatar.png'}
+                        src={
+                          user.photoURL ||
+                          "https://i.ibb.co/G2jQXGk/default-avatar.png"
+                        }
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
@@ -88,8 +93,18 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <>
-                    <NavLink to="/signin" className="btn text-gray-700 hover:text-gray-900 transition-colors">Sign In</NavLink>
-                    <NavLink to="/signup" className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+                    <NavLink
+                      to="/signin"
+                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                    >
+                      Sign In
+                    </NavLink>
+                    <NavLink
+                      to="/signup"
+                      className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors"
+                    >
+                      Sign Up
+                    </NavLink>
                   </>
                 )}
               </div>
@@ -97,19 +112,30 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} pt-4`}>
+          <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"} pt-4`}>
             <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
-              <NavLink to="/" className="block">Home</NavLink>
-              <NavLink to="/addtask" className="block">Add-Task</NavLink>
-              <NavLink to="/addtask" className="block">Browse-Tasks</NavLink>
-              <NavLink to="/addtask" className="block">My-Posted-Tasks</NavLink>
+              <NavLink to="/" className="block">
+                Home
+              </NavLink>
+              <NavLink to="/addtask" className="block">
+                Add-Task
+              </NavLink>
+              <NavLink to="/addtask" className="block">
+                Browse-Tasks
+              </NavLink>
+              <NavLink to="/addtask" className="block">
+                My-Posted-Tasks
+              </NavLink>
               <hr className="border-gray-300 my-2" />
               {user ? (
                 <>
                   <div className="flex items-center gap-4">
                     <div className="relative group z-50">
                       <img
-                        src={user.photoURL || 'https://i.ibb.co/G2jQXGk/default-avatar.png'}
+                        src={
+                          user.photoURL ||
+                          "https://i.ibb.co/G2jQXGk/default-avatar.png"
+                        }
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
@@ -127,8 +153,15 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <NavLink to="/signin" className="btn">Sign In</NavLink>
-                  <NavLink to="/signup" className="btn px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+                  <NavLink to="/signin" className="btn">
+                    Sign In
+                  </NavLink>
+                  <NavLink
+                    to="/signup"
+                    className="btn px-4 py-2 rounded-lg transition-colors"
+                  >
+                    Sign Up
+                  </NavLink>
                 </>
               )}
             </div>

@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import Error from "../Pages/Error";
 import AddTask from "../Pages/AddTask";
 import BrowseTask from "../Pages/BrowseTask";
+import MyPostedTask from "../Pages/MyPostedTask";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "browsetask",
         Component: BrowseTask
       },
+      {
+        path: "mypostedtask",
+        Component: MyPostedTask
+      }
     ],
   },
 ]);
