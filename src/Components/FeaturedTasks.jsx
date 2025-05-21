@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const FeaturedTasks = () => {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/featured-tasks')
-            .then(res => res.json())
+        fetch('http://localhost:3000/featured-tasks?limit=6')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch tasks');
+                }
+                return res.json();
+            })
             .then(data => {
-                setTasks(data);
+                // Sort tasks by deadline (most recent first)
+                const sortedTasks = data.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+                setTasks(sortedTasks);
                 setLoading(false);
             })
             .catch(error => {

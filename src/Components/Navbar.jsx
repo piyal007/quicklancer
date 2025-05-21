@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,8 +40,8 @@ const Navbar = () => {
               <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/addtask">Add-Task</NavLink>
-                <NavLink to="/addtask">Browse-Tasks</NavLink>
-                <NavLink to="/addtask">My-Posted-Tasks</NavLink>
+                <NavLink to="/browsetask">Browse-Tasks</NavLink>
+                <NavLink to="/postedtask">My-Posted-Tasks</NavLink>
               </div>
             </div>
             <div className="hidden md:flex items-center *:font-semibold">

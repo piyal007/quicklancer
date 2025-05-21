@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Build a portfolio website",
+    "category": "Web Development",
+    "description": "Need a personal portfolio using React and Tailwind.",
+    "deadline": "2025-06-10",
+    "budget": 150,
+    "userEmail": "user1@example.com",
+    "userName": "Arif Rahman"
+  },
+  {
+    "title": "Design a logo for a tech startup",
+    "category": "Design",
+    "description": "Create a minimalist and modern logo for a SaaS brand.",
+    "deadline": "2025-06-12",
+    "budget": 80,
+    "userEmail": "user2@example.com",
+    "userName": "Nusrat Jahan"
+  },
+  {
+    "title": "Write 10 product descriptions",
+    "category": "Writing",
+    "description": "SEO-friendly descriptions for e-commerce listings.",
+    "deadline": "2025-06-15",
+    "budget": 100,
+    "userEmail": "user3@example.com",
+    "userName": "Mehedi Hasan"
+  },
+  {
+    "title": "Create a social media marketing plan",
+    "category": "Marketing",
+    "description": "Need a strategy for Instagram and Facebook growth.",
+    "deadline": "2025-06-11",
+    "budget": 120,
+    "userEmail": "user4@example.com",
+    "userName": "Sadia Akter"
+  },
+  {
+    "title": "Fix bugs in existing MERN app",
+    "category": "Web Development",
+    "description": "Resolve API errors and UI bugs in dashboard.",
+    "deadline": "2025-06-09",
+    "budget": 90,
+    "userEmail": "user5@example.com",
+    "userName": "Zubair Ahmed"
+  },
+  {
+    "title": "Design a landing page UI",
+    "category": "Design",
+    "description": "Figma design for a SaaS product landing page.",
+    "deadline": "2025-06-08",
+    "budget": 70,
+    "userEmail": "user6@example.com",
+    "userName": "Tania Islam"
+  },
+  {
+    "title": "Write blog posts for tech site",
+    "category": "Writing",
+    "description": "2 articles about AI tools and web frameworks.",
+    "deadline": "2025-06-13",
+    "budget": 110,
+    "userEmail": "user7@example.com",
+    "userName": "Rakibul Hasan"
+  },
+  {
+    "title": "Run Facebook ads for product launch",
+    "category": "Marketing",
+    "description": "Setup and manage Facebook ad campaign.",
+    "deadline": "2025-06-14",
+    "budget": 130,
+    "userEmail": "user8@example.com",
+    "userName": "Faria Tabassum"
+  },
+  {
+    "title": "Create REST API with Express.js",
+    "category": "Web Development",
+    "description": "API for a freelance job board app with auth.",
+    "deadline": "2025-06-16",
+    "budget": 200,
+    "userEmail": "user9@example.com",
+    "userName": "Rezaul Karim"
+  },
+  {
+    "title": "Design graphics for Instagram posts",
+    "category": "Design",
+    "description": "10 templates for digital agency page.",
+    "deadline": "2025-06-18",
+    "budget": 90,
+    "userEmail": "user10@example.com",
+    "userName": "Shirin Nahar"
+  }
+]
