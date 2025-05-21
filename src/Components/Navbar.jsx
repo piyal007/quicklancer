@@ -1,12 +1,33 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../Providers/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../Firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Successfully logged out!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      toast.error("Error signing out: " + error.message);
+    }
+  };
 
   return (
     <>
-      <div className="bg-gray-50 shadow-md">
+      <div className="bg-gray-50 shadow-md z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
@@ -46,8 +67,31 @@ const Navbar = () => {
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
               <div className="nav-right space-x-4 *:font-semibold">
-                <NavLink to="/signin" className="btn text-gray-700 hover:text-gray-900 transition-colors">Sign In</NavLink>
-                <NavLink to="/signup" className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+                {user ? (
+                  <div className="flex items-center gap-4">
+                    <div className="relative group z-50">
+                      <img
+                        src={user.photoURL || 'https://i.ibb.co/G2jQXGk/default-avatar.png'}
+                        alt="user"
+                        className="w-10 h-10 rounded-full cursor-pointer object-cover"
+                      />
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                        {user.displayName}
+                      </span>
+                    </div>
+                    <button
+                      onClick={handleLogout}
+                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <NavLink to="/signin" className="btn text-gray-700 hover:text-gray-900 transition-colors">Sign In</NavLink>
+                    <NavLink to="/signup" className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -60,8 +104,33 @@ const Navbar = () => {
               <NavLink to="/addtask" className="block">Browse-Tasks</NavLink>
               <NavLink to="/addtask" className="block">My-Posted-Tasks</NavLink>
               <hr className="border-gray-300 my-2" />
-              <NavLink to="/signin" className="btn">Sign In</NavLink>
-              <NavLink to="/signup" className="btn px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+              {user ? (
+                <>
+                  <div className="flex items-center gap-4">
+                    <div className="relative group z-50">
+                      <img
+                        src={user.photoURL || 'https://i.ibb.co/G2jQXGk/default-avatar.png'}
+                        alt="user"
+                        className="w-10 h-10 rounded-full cursor-pointer object-cover"
+                      />
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                        {user.displayName}
+                      </span>
+                    </div>
+                    <button
+                      onClick={handleLogout}
+                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <NavLink to="/signin" className="btn">Sign In</NavLink>
+                  <NavLink to="/signup" className="btn px-4 py-2 rounded-lg transition-colors">Sign Up</NavLink>
+                </>
+              )}
             </div>
           </div>
         </div>

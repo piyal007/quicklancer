@@ -5,6 +5,7 @@ import Signup from "../Pages/Signup";
 import Home from "../Pages/Home";
 import Error from "../Pages/Error";
 import AddTask from "../Pages/AddTask";
+import BrowseTask from "../Pages/BrowseTask";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "addtask",
         Component: AddTask
+      },
+      {
+        path: "browsetask",
+        Component: BrowseTask
       },
     ],
   },
