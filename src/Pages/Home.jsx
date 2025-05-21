@@ -1,13 +1,17 @@
 import React from 'react';
 import Banner from '../Components/Banner';
+import FeaturedTasks from '../Components/FeaturedTasks';
 import Category from '../Components/Category';
+import TopFreelancer from '../Components/TopFreelancer';
 
 const Home = () => {
   return (
-    <>
-      <Banner></Banner>
-      <Category></Category>
-    </>
+    <div className="min-h-screen bg-gray-50">
+      <Banner />
+      <FeaturedTasks />
+      <Category />
+      <TopFreelancer/>
+    </div>
   );
 };
 
