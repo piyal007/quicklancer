@@ -60,7 +60,7 @@ const MyPostedTask = () => {
           <h1 className='text-3xl font-bold text-gray-900'>My Posted Tasks</h1>
           <p className='text-gray-600 mt-2'>Manage and track your posted tasks</p>
         </div>
-        
+
         <div className='bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200'>
           <div className='overflow-x-auto'>
             <table className='w-full'>
@@ -96,7 +96,7 @@ const MyPostedTask = () => {
                         `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
                         ${task.status === 'completed' ? 'bg-green-100 text-green-800' :
                           task.status === 'in-progress' ? 'bg-blue-100 text-blue-800' :
-                          'bg-gray-100 text-gray-800'}`
+                            'bg-gray-100 text-gray-800'}`
                       }>
                         {task.status || 'Open'}
                       </span>
@@ -115,7 +115,7 @@ const MyPostedTask = () => {
                         Delete
                       </button>
                       <Link
-                        to={`/task-bids/${task._id}`}
+                        to={`/task-details/${task._id}`}
                         className='inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
                       >
                         Bids

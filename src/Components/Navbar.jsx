@@ -120,10 +120,10 @@ const Navbar = () => {
               <NavLink to="/addtask" className="block">
                 Add-Task
               </NavLink>
-              <NavLink to="/addtask" className="block">
+              <NavLink to="/browsetask" className="block">
                 Browse-Tasks
               </NavLink>
-              <NavLink to="/addtask" className="block">
+              <NavLink to="/mypostedtask" className="block">
                 My-Posted-Tasks
               </NavLink>
               <hr className="border-gray-300 my-2" />
