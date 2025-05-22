@@ -4,6 +4,7 @@ import { useAuth } from "../Providers/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,40 +28,45 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-gray-50 shadow-md z-50">
+      <div className="bg-gray-50 dark:bg-gray-800 shadow-md z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
-              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho">
+              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-gray-900 dark:text-white">
                 QuickLancer
               </h2>
             </div>
 
             {/* Hamburger Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 focus:outline-none"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <ThemeToggle />
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden text-gray-700 dark:text-gray-200 focus:outline-none"
               >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  {isMenuOpen ? (
+                    <path d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex-1 md:flex justify-center">
-              <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
+              <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 dark:*:text-gray-200 *:hover:text-gray-900 dark:*:hover:text-white *:transition-colors">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/addtask">Add-Task</NavLink>
                 <NavLink to="/browsetask">Browse-Tasks</NavLink>
@@ -68,7 +74,8 @@ const Navbar = () => {
               </div>
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
-              <div className="nav-right space-x-4 *:font-semibold">
+              <div className="nav-right flex items-center space-x-4 *:font-semibold">
+                <ThemeToggle />
                 {user ? (
                   <div className="flex items-center gap-4">
                     <div className="relative group z-50">
@@ -80,13 +87,13 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 dark:bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                      className="btn dark:text-white dark:hover:text-white transition-colors"
                     >
                       Log Out
                     </button>
@@ -95,13 +102,13 @@ const Navbar = () => {
                   <>
                     <NavLink
                       to="/signin"
-                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                      className="btn dark:text-white dark:hover:text-white transition-colors"
                     >
                       Sign In
                     </NavLink>
                     <NavLink
                       to="/signup"
-                      className="btn text-gray-700 px-4 py-2 rounded-lg transition-colors"
+                      className="btn px-4 py-2 rounded-lg transition-colors"
                     >
                       Sign Up
                     </NavLink>
@@ -113,7 +120,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"} pt-4`}>
-            <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
+            <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 dark:*:text-gray-200 *:hover:text-gray-900 dark:*:hover:text-white *:transition-colors">
               <NavLink to="/" className="block">
                 Home
               </NavLink>
@@ -126,7 +133,9 @@ const Navbar = () => {
               <NavLink to="/mypostedtask" className="block">
                 My-Posted-Tasks
               </NavLink>
-              <hr className="border-gray-300 my-2" />
+              <hr className="border-gray-300 dark:border-gray-600 my-2" />
+
+              <hr className="border-gray-300 dark:border-gray-600 my-2" />
               {user ? (
                 <>
                   <div className="flex items-center gap-4">
@@ -139,13 +148,13 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 dark:bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn text-gray-700 hover:text-gray-900 transition-colors"
+                      className="btn dark:text-white hover:text-gray-900 dark:hover:text-white transition-colors"
                     >
                       Log Out
                     </button>
@@ -153,7 +162,10 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <NavLink to="/signin" className="btn">
+                  <NavLink
+                    to="/signin"
+                    className="btn dark:bg-black dark:text-white"
+                  >
                     Sign In
                   </NavLink>
                   <NavLink

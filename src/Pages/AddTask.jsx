@@ -73,115 +73,141 @@ const AddTask = () => {
 
     } catch (error) {
       toast.error('Failed to add task. Please try again.');
+      console.log(error)
     }
   };
 
   return (
-    <div className='min-h-screen bg-gray-50 py-12'>
-      <div className='w-11/12 max-w-2xl mx-auto'>
-        <div className='bg-white rounded-lg shadow-md p-8'>
-          <h2 className='text-3xl font-bold text-center text-gray-800 mb-8'>Add New Task</h2>
-          
-          <form onSubmit={handleSubmit} className='space-y-6'>
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="w-11/12 max-w-2xl mx-auto">
+        <div className="bg-white rounded-lg shadow-md p-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Add New Task
+          </h2>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor='title' className='block text-sm font-medium text-gray-700 mb-2'>
+              <label
+                htmlFor="title"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Task Title
               </label>
               <input
-                type='text'
-                id='title'
-                name='title'
+                type="text"
+                id="title"
+                name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor='category' className='block text-sm font-medium text-gray-700 mb-2'>
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Category
               </label>
               <select
-                id='category'
-                name='category'
+                id="category"
+                name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               >
-                {categories.map(category => (
-                  <option key={category} value={category}>{category}</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label htmlFor='description' className='block text-sm font-medium text-gray-700 mb-2'>
+              <label
+                htmlFor="description"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Description
               </label>
               <textarea
-                id='description'
-                name='description'
+                id="description"
+                name="description"
                 value={formData.description}
                 onChange={handleChange}
-                rows='4'
-                className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                rows="4"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               ></textarea>
             </div>
 
             <div>
-              <label htmlFor='deadline' className='block text-sm font-medium text-gray-700 mb-2'>
+              <label
+                htmlFor="deadline"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Deadline
               </label>
               <input
-                type='date'
-                id='deadline'
-                name='deadline'
+                type="date"
+                id="deadline"
+                name="deadline"
                 value={formData.deadline}
                 onChange={handleChange}
-                className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor='budget' className='block text-sm font-medium text-gray-700 mb-2'>
+              <label
+                htmlFor="budget"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Budget ($)
               </label>
               <input
-                type='number'
-                id='budget'
-                name='budget'
+                type="number"
+                id="budget"
+                name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
 
-            <div className='space-y-2'>
-              <div className='flex items-center space-x-2'>
-                <span className='text-sm font-medium text-gray-700'>User Email:</span>
-                <span className='text-sm text-gray-600'>{user?.email}</span>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-medium text-gray-700">
+                  User Email:
+                </span>
+                <span className="text-sm text-gray-600">{user?.email}</span>
               </div>
-              <div className='flex items-center space-x-2'>
-                <span className='text-sm font-medium text-gray-700'>User Name:</span>
-                <span className='text-sm text-gray-600'>{user?.displayName}</span>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-medium text-gray-700">
+                  User Name:
+                </span>
+                <span className="text-sm text-gray-600">
+                  {user?.displayName}
+                </span>
               </div>
             </div>
 
             <button
-              type='submit'
-              className='btn w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+              type="submit"
+              className="btn w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Add Task
             </button>
           </form>
         </div>
       </div>
-        </div>
+    </div>
   );
 };
 
