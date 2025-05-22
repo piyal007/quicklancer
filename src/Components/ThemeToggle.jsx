@@ -1,11 +1,30 @@
 import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    // Check localStorage first
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme;
+
+    // Then check system preference
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
 
   // Set theme on mount or change
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.setAttribute('data-theme', 'light');
+    }
+    // Save theme preference
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -14,7 +33,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="btn relative p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 shadow-sm hover:shadow-md"
+      className="btn relative p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-900 dark:text-white transition-all duration-300 shadow-sm hover:shadow-md"
       onClick={toggleTheme}
       aria-label="Toggle theme"
     >

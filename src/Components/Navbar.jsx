@@ -39,7 +39,7 @@ const Navbar = () => {
 
             {/* Hamburger Menu Button */}
             <div className="flex items-center justify-between gap-2">
-              <div>
+              <div className="lg:hidden">
                 <ThemeToggle />
               </div>
               <button
