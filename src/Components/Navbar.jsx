@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../Providers/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
@@ -12,17 +12,33 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth);
-      toast.success("Successfully logged out!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will be logged out of your account',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, log out!'
       });
+
+      if (result.isConfirmed) {
+        await signOut(auth);
+        Swal.fire({
+          title: 'Logged Out!',
+          text: 'You have been successfully logged out',
+          icon: 'success',
+          timer: 2000,
+          showConfirmButton: false
+        });
+      }
     } catch (error) {
-      toast.error("Error signing out: " + error.message);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Error signing out: ' + error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
     }
   };
 
@@ -82,7 +98,7 @@ const Navbar = () => {
                       <img
                         src={
                           user.photoURL ||
-                          "https://i.ibb.co/G2jQXGk/default-avatar.png"
+                          "https://i.postimg.cc/yxzXkbkL/avatar.jpg"
                         }
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
