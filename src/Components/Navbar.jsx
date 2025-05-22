@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Providers/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
 import Swal from "sweetalert2";
-import ThemeToggle from "./ThemeToggle";
-
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -44,11 +43,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-gray-50 dark:bg-gray-800 shadow-md z-50">
+      <div className="bg-gray-50 shadow-md z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
-              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-gray-900 dark:text-white">
+              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-gray-900">
                 QuickLancer
               </h2>
             </div>
@@ -56,11 +55,10 @@ const Navbar = () => {
             {/* Hamburger Menu Button */}
             <div className="flex items-center justify-between gap-2">
               <div className="lg:hidden">
-                <ThemeToggle />
               </div>
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden text-gray-700 dark:text-gray-200 focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden text-gray-700 focus:outline-none"
               >
                 <svg
                   className="h-6 w-6"
@@ -71,7 +69,7 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  {isMenuOpen ? (
+                  {isOpen ? (
                     <path d="M6 18L18 6M6 6l12 12" />
                   ) : (
                     <path d="M4 6h16M4 12h16M4 18h16" />
@@ -82,7 +80,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex-1 md:flex justify-center">
-              <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 dark:*:text-gray-200 *:hover:text-gray-900 dark:*:hover:text-white *:transition-colors">
+              <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/addtask">Add-Task</NavLink>
                 <NavLink to="/browsetask">Browse-Tasks</NavLink>
@@ -91,7 +89,6 @@ const Navbar = () => {
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
               <div className="nav-right flex items-center space-x-4 *:font-semibold">
-                <ThemeToggle />
                 {user ? (
                   <div className="flex items-center gap-4">
                     <div className="relative group z-50">
@@ -103,13 +100,13 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 dark:bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn dark:text-white dark:hover:text-white transition-colors"
+                      className="btn transition-colors"
                     >
                       Log Out
                     </button>
@@ -118,7 +115,7 @@ const Navbar = () => {
                   <>
                     <NavLink
                       to="/signin"
-                      className="btn dark:text-white dark:hover:text-white transition-colors"
+                      className="btn transition-colors"
                     >
                       Sign In
                     </NavLink>
@@ -135,8 +132,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"} pt-4`}>
-            <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 dark:*:text-gray-200 *:hover:text-gray-900 dark:*:hover:text-white *:transition-colors">
+          <div className={`md:hidden ${isOpen ? "block" : "hidden"} pt-4`}>
+            <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
               <NavLink to="/" className="block">
                 Home
               </NavLink>
@@ -149,9 +146,9 @@ const Navbar = () => {
               <NavLink to="/mypostedtask" className="block">
                 My-Posted-Tasks
               </NavLink>
-              <hr className="border-gray-300 dark:border-gray-600 my-2" />
-
-              <hr className="border-gray-300 dark:border-gray-600 my-2" />
+              <hr className="border-gray-300 my-2" />
+              <NavLink to="/add-job">Add Job</NavLink>
+              <hr className="border-gray-300 my-2" />
               {user ? (
                 <>
                   <div className="flex items-center gap-4">
@@ -164,13 +161,13 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 dark:bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn dark:text-white hover:text-gray-900 dark:hover:text-white transition-colors"
+                      className="btn hover:text-gray-900 transition-colors"
                     >
                       Log Out
                     </button>
@@ -180,7 +177,7 @@ const Navbar = () => {
                 <>
                   <NavLink
                     to="/signin"
-                    className="btn dark:bg-black dark:text-white"
+                    className="btn"
                   >
                     Sign In
                   </NavLink>
