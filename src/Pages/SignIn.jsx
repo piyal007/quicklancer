@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../Firebase/firebase.config';
@@ -10,6 +10,9 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ const SignIn = () => {
           showConfirmButton: false,
           timer: 2000
         });
-        navigate('/');
+        navigate(from, { replace: true });
       }
     } catch (error) {
       let errorMessage = 'An error occurred during sign in';
@@ -64,7 +67,7 @@ const SignIn = () => {
           showConfirmButton: false,
           timer: 2000
         });
-        navigate('/');
+        navigate(from, { replace: true });
       }
     } catch (error) {
       toast.error(error.message);
