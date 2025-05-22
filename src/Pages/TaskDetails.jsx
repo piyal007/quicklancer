@@ -77,11 +77,6 @@ const TaskDetails = () => {
                 return;
             }
 
-            // Check if user has reached maximum bids for the day
-            if (bidsCount >= 5) {
-                toast.error('You have reached the maximum number of bids for today');
-                return;
-            }
 
             const bidData = {
                 taskId: id,
@@ -117,7 +112,6 @@ const TaskDetails = () => {
                 ]);
 
                 toast.success('Your bid has been placed successfully!');
-                toast.success(`You have ${5 - (bidsCount + 1)} bids remaining today`);
             } else {
                 throw new Error(data.message || 'Failed to place bid');
             }
