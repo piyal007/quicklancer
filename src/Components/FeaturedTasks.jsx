@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const RecentTasks = () => {
+const FeaturedTasks = () => {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -35,8 +35,8 @@ const RecentTasks = () => {
         <div className="py-20 bg-gradient-to-b from-gray-50 to-white">
             <div className="w-11/12 max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 tracking-tight">Recent Tasks</h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">Explore our most recent opportunities and find the perfect project for your skills</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 tracking-tight">Featured Tasks</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">Explore our featured opportunities and find the perfect project for your skills</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,7 +65,7 @@ const RecentTasks = () => {
                                     </div>
                                 </div>
                                 <Link
-                                    to={`/task/${task._id}`}
+                                    to={`/task-details/${task._id}`}
                                     className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm hover:shadow-md"
                                 >
                                     View Details
@@ -79,4 +79,4 @@ const RecentTasks = () => {
     );
 };
 
-export default RecentTasks;
+export default FeaturedTasks;

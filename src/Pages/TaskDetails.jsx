@@ -61,12 +61,25 @@ const TaskDetails = () => {
                 return;
             }
 
+            const currentDate = new Date();
+            const taskDeadline = new Date(task.deadline);
+            if (currentDate > taskDeadline) {
+                toast.error('This task has passed its deadline');
+                return;
+            }
+
             // Check if user has already bid on this task
             const checkResponse = await fetch(`http://localhost:3000/check-user-bid/${id}/${user.email}`);
             const checkData = await checkResponse.json();
 
             if (checkData.hasBid) {
                 toast.error('You have already placed a bid on this task');
+                return;
+            }
+
+            // Check if user has reached maximum bids for the day
+            if (bidsCount >= 5) {
+                toast.error('You have reached the maximum number of bids for today');
                 return;
             }
 
@@ -90,7 +103,8 @@ const TaskDetails = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to place bid');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to place bid');
             }
 
             const data = await response.json();
@@ -102,7 +116,8 @@ const TaskDetails = () => {
                     fetchUserBidsCount()
                 ]);
 
-                toast.success('Bid placed successfully!');
+                toast.success('Your bid has been placed successfully!');
+                toast.success(`You have ${5 - (bidsCount + 1)} bids remaining today`);
             } else {
                 throw new Error(data.message || 'Failed to place bid');
             }
@@ -127,7 +142,7 @@ const TaskDetails = () => {
                     <div></div>
                     <div className="p-4 bg-green-50 rounded-lg">
                         <p className="text-green-800 font-medium text-right">
-                            You bid for {bidsCount} {bidsCount === 1 ? 'opportunity' : 'opportunities'}
+                            You bid for {bidsCount} opportunities
                         </p>
                     </div>
                 </div>

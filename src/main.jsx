@@ -5,18 +5,31 @@ import App from './App.jsx'
 import { RouterProvider } from "react-router-dom";
 import router from './Routes/Routes.jsx';
 import { AuthProvider } from './Providers/AuthProvider';
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     Component: Routes
-//   },
-// ]);
+import { Toaster } from 'react-hot-toast';
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            duration: 3000,
+            style: {
+              background: '#4CAF50',
+              color: 'white',
+            },
+          },
+          error: {
+            duration: 4000,
+            style: {
+              background: '#f44336',
+              color: 'white',
+            },
+          },
+        }}
+      />
     </AuthProvider>
   </StrictMode>
 );

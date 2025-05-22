@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Components/Banner';
-import RecentTasks from '../Components/RecentTasks';
+import FeaturedTasks from '../Components/FeaturedTasks';
 import Category from '../Components/Category';
 import TopFreelancer from '../Components/TopFreelancer';
 import { Fade, Slide } from 'react-awesome-reveal';
@@ -12,7 +12,7 @@ const Home = () => {
         <Banner />
       </Fade>
       <Slide direction="right">
-        <RecentTasks />
+        <FeaturedTasks />
       </Slide>
       <Fade delay={200}>
         <Category />
