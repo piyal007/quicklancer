@@ -132,7 +132,7 @@ const BrowseTask = () => {
                   </div>
                 </div>
                 <Link
-                  to={`/task/${task._id}`}
+                  to={`/task-details/${task._id}`}
                   className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm hover:shadow-md"
                 >
                   See Details

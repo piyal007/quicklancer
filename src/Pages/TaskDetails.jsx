@@ -11,24 +11,42 @@ const TaskDetails = () => {
     const [bidsCount, setBidsCount] = useState(0);
     const [totalBids, setTotalBids] = useState(0);
 
-    useEffect(() => {
-        // Fetch task details and total bids
-        fetch(`http://localhost:3000/tasks/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setTask(data);
-                setTotalBids(data.totalBids || 0);
-                setLoading(false);
-            });
-
-        // Fetch user's bid count
+    // Function to fetch user's bid count
+    const fetchUserBidsCount = async () => {
         if (user?.email) {
-            fetch(`http://localhost:3000/user-bids-count/${user.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    setBidsCount(data.count);
-                });
+            try {
+                const response = await fetch(`http://localhost:3000/bids/${user.email}`);
+                const data = await response.json();
+                setBidsCount(data.bidCount);
+            } catch (error) {
+                console.error('Error fetching user bids count:', error);
+            }
         }
+    };
+
+    // Function to fetch task details
+    const fetchTaskDetails = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/tasks/${id}`);
+            const data = await response.json();
+            setTask(data);
+            setTotalBids(data.totalBids || 0);
+        } catch (error) {
+            console.error('Error fetching task details:', error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            await Promise.all([
+                fetchTaskDetails(),
+                fetchUserBidsCount()
+            ]);
+            setLoading(false);
+        };
+
+        fetchData();
     }, [id, user?.email]);
 
     const handleBid = async () => {
@@ -43,13 +61,26 @@ const TaskDetails = () => {
                 return;
             }
 
+            // Check if user has already bid on this task
+            const checkResponse = await fetch(`http://localhost:3000/check-user-bid/${id}/${user.email}`);
+            const checkData = await checkResponse.json();
+
+            if (checkData.hasBid) {
+                toast.error('You have already placed a bid on this task');
+                return;
+            }
+
             const bidData = {
                 taskId: id,
+                taskTitle: task.title,
                 userEmail: user.email,
                 userName: user.displayName,
-                timestamp: new Date().toISOString()
+                taskOwnerEmail: task.userEmail,
+                timestamp: new Date().toISOString(),
+                status: 'pending'
             };
 
+            // Create the bid
             const response = await fetch('http://localhost:3000/bids', {
                 method: 'POST',
                 headers: {
@@ -58,17 +89,26 @@ const TaskDetails = () => {
                 body: JSON.stringify(bidData)
             });
 
+            if (!response.ok) {
+                throw new Error('Failed to place bid');
+            }
+
             const data = await response.json();
 
             if (data.success) {
-                setBidsCount(prev => prev + 1);
+                // Refresh both counts from server to ensure accuracy
+                await Promise.all([
+                    fetchTaskDetails(),
+                    fetchUserBidsCount()
+                ]);
+
                 toast.success('Bid placed successfully!');
             } else {
-                toast.error(data.message || 'Failed to place bid');
+                throw new Error(data.message || 'Failed to place bid');
             }
         } catch (error) {
             console.error('Bid error:', error);
-            toast.error('Something went wrong while placing your bid');
+            toast.error(error.message || 'Something went wrong while placing your bid');
         }
     };
 
@@ -84,16 +124,10 @@ const TaskDetails = () => {
         <div className="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8 grid gap-4 sm:grid-cols-2">
-                    {user && (
-                        <div className="p-4 bg-blue-50 rounded-lg">
-                            <p className="text-blue-800 font-medium">
-                                You bid for {bidsCount} {bidsCount === 1 ? 'opportunity' : 'opportunities'}
-                            </p>
-                        </div>
-                    )}
+                    <div></div>
                     <div className="p-4 bg-green-50 rounded-lg">
-                        <p className="text-green-800 font-medium">
-                            Total Bids: {totalBids}
+                        <p className="text-green-800 font-medium text-right">
+                            You bid for {bidsCount} {bidsCount === 1 ? 'opportunity' : 'opportunities'}
                         </p>
                     </div>
                 </div>
@@ -164,7 +198,7 @@ const TaskDetails = () => {
                         {user && user.email !== task.userEmail && (
                             <button
                                 onClick={handleBid}
-                                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                className="btn w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                             >
                                 Place Bid
                             </button>
