@@ -2,8 +2,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body{
+html, body {
     font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Ensure animations don't cause overflow */
+.react-awesome-reveal {
+    overflow: hidden;
 }
 
 .font-rancho{

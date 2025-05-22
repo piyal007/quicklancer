@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
     return (
         <>
-            <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[650px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("https://i.postimg.cc/RVSTZyv8/banner.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[700px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("https://i.postimg.cc/RVSTZyv8/banner.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute inset-0 bg-black/60 sm:bg-black/50"></div>
                 <div className="relative w-11/12 mx-auto flex flex-col items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] text-white text-center px-3 sm:px-6 lg:px-8">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">Hire a Freelancer for any task</h1>
