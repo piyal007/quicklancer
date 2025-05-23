@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-base-100 text-base-content z-50">
+      <div data-theme="dark" className="bg-base-100 text-base-content z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
@@ -112,12 +112,15 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <>
-                    <NavLink to="/signin" className="btn transition-colors">
+                    <NavLink
+                      to="/signin"
+                      className="btn transition-colors bg-base-content text-base-100 hover:text-success"
+                    >
                       Sign In
                     </NavLink>
                     <NavLink
                       to="/signup"
-                      className="btn px-4 py-2 rounded-lg transition-colors"
+                      className="btn px-4 py-2 rounded-lg transition-colors bg-base-content text-base-100 hover:text-success"
                     >
                       Sign Up
                     </NavLink>
@@ -129,7 +132,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden ${isOpen ? "block" : "hidden"} pt-4`}>
-            <div className="flex flex-col space-y-3 *:font-semibold *:text-base-content *:hover:text-gray-900 *:transition-colors">
+            <div className="flex flex-col space-y-3 *:font-semibold *:text-base-content *:hover:text-success *:transition-colors">
               <NavLink to="/" className="block">
                 Home
               </NavLink>
@@ -155,7 +158,7 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-base-content text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
@@ -170,12 +173,15 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <NavLink to="/signin" className="btn">
+                  <NavLink
+                    to="/signin"
+                    className="btn rounded-lg bg-base-100 transition-colors text-base-content hover:text-success"
+                  >
                     Sign In
                   </NavLink>
                   <NavLink
                     to="/signup"
-                    className="btn px-4 py-2 rounded-lg transition-colors"
+                    className="btn px-4 py-2 bg-base-100 rounded-lg transition-colors text-base-content hover:text-success"
                   >
                     Sign Up
                   </NavLink>
