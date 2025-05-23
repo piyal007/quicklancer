@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <>
-      <footer className='bg-gray-100 py-8'>
+      <footer className='bg-base-100 text-base-content py-8'>
         <div className='w-11/12 mx-auto'>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {/* Contact Information */}

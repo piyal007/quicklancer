@@ -109,7 +109,7 @@ const TopFreelancer = () => {
   const visibleFreelancers = freelancers.slice(currentSlide * 4, (currentSlide + 1) * 4);
 
   return (
-    <div className='bg-gray-50 py-16'>
+    <div className='bg-base-100 text-base-content py-16'>
       <div className='w-11/12 mx-auto'>
         <div className='flex justify-between items-center mb-8'>
           <h2 className='text-3xl font-bold'>Top Rated Freelancers</h2>

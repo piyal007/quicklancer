@@ -32,11 +32,11 @@ const FeaturedTasks = () => {
     }
 
     return (
-        <div className="py-20 bg-gradient-to-b from-gray-50 to-white">
-            <div className="w-11/12 max-w-7xl mx-auto">
+        <div className="py-20 bg-base-100 text-base-content">
+            <div className="w-11/12 mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 tracking-tight">Featured Tasks</h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">Explore our featured opportunities and find the perfect project for your skills</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Featured Tasks</h2>
+                    <p className="text-lg max-w-2xl mx-auto">Explore our featured opportunities and find the perfect project for your skills</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

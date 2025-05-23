@@ -7,17 +7,20 @@ import { Fade, Slide } from 'react-awesome-reveal';
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
-      <Slide direction="right" delay={200}>
+    <div
+      className="min-h-screen bg-base-100 text-base-content"
+      data-theme="dark"
+    >
+      <Slide>
         <Banner />
       </Slide>
-      <Slide direction="left" delay={200}>
+      <Slide>
         <FeaturedTasks />
       </Slide>
-      <Slide direction="right" delay={200}>
+      <Slide>
         <Category />
       </Slide>
-      <Slide direction="left" delay={200}>
+      <Slide>
         <TopFreelancer />
       </Slide>
     </div>
