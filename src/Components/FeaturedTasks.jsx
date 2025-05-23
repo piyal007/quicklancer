@@ -32,24 +32,24 @@ const FeaturedTasks = () => {
     }
 
     return (
-        <div className="py-20 bg-base-100 text-base-content">
-            <div className="w-11/12 mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Featured Tasks</h2>
-                    <p className="text-xs md:text-lg max-w-2xl mx-auto">Explore our featured opportunities and find the perfect project for your skills</p>
+        <div className="py-24 bg-gradient-to-b from-base-100 to-blue-50 text-base-content">
+            <div className="w-11/12 max-w-7xl mx-auto">
+                <div className="text-center mb-20">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content">Featured Tasks</h2>
+                    <p className="text-sm md:text-lg max-w-2xl mx-auto text-base-content">Explore our featured opportunities and find the perfect project for your skills</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
                     {tasks.map(task => (
-                        <div key={task._id} className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
-                            <div className="p-8">
+                        <div key={task._id} className="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100/20 backdrop-blur-sm">
+                            <div className="p-8 relative z-10 backdrop-blur-sm bg-white/80">
                                 <div className="flex justify-between items-start mb-6">
                                     <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 flex-1 mr-4">{task.title}</h3>
-                                    <span className="bg-blue-50 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                                    <span className="bg-blue-50 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">
                                         {task.category}
                                     </span>
                                 </div>
-                                <p className="text-gray-600 mb-6 line-clamp-3 text-base leading-relaxed">{task.description}</p>
+                                <p className="text-gray-600 mb-8 line-clamp-3 text-base leading-relaxed transition-all duration-300">{task.description}</p>
                                 <div className="flex flex-col space-y-4 mb-6">
                                     <div className="flex items-center text-gray-700">
                                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@ const FeaturedTasks = () => {
                                 </div>
                                 <Link
                                     to={`/task-details/${task._id}`}
-                                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm hover:shadow-md"
+                                    className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 px-6 rounded-lg transition-all duration-300 shadow-sm hover:shadow-lg transform active:scale-95"
                                 >
                                     View Details
                                 </Link>

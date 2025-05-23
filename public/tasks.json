@@ -1,92 +1,126 @@
 [
   {
+    "title": "Run Facebook ads for product launch",
+    "category": "Marketing",
+    "description": "Setup and manage a comprehensive Facebook ad campaign, including audience targeting, ad creative development, budget management, and performance tracking to ensure a successful product launch.",
+    "deadline": "2025-06-14",
+    "budget": 130,
+    "userEmail": "user8@example.com",
+    "userName": "Faria Tabassum",
+    "totalBids": 1
+  },
+  {
     "title": "Build a portfolio website",
     "category": "Web Development",
-    "description": "Need a personal portfolio using React and Tailwind.",
+    "description": "Need a personal portfolio website using React and Tailwind CSS. The site should be responsive, showcase my projects effectively, and include a contact form.",
     "deadline": "2025-06-10",
     "budget": 150,
     "userEmail": "user1@example.com",
-    "userName": "Arif Rahman"
-  },
-  {
-    "title": "Design a logo for a tech startup",
-    "category": "Design",
-    "description": "Create a minimalist and modern logo for a SaaS brand.",
-    "deadline": "2025-06-12",
-    "budget": 80,
-    "userEmail": "user2@example.com",
-    "userName": "Nusrat Jahan"
+    "userName": "Arif Rahman",
+    "totalBids": 2
   },
   {
     "title": "Write 10 product descriptions",
     "category": "Writing",
-    "description": "SEO-friendly descriptions for e-commerce listings.",
+    "description": "Write 10 SEO-friendly product descriptions for e-commerce listings. Each description should be engaging, informative, and optimized with relevant keywords to improve search engine visibility and conversion rates.",
     "deadline": "2025-06-15",
     "budget": 100,
     "userEmail": "user3@example.com",
-    "userName": "Mehedi Hasan"
+    "userName": "Mehedi Hasan",
+    "totalBids": 3
   },
   {
     "title": "Create a social media marketing plan",
     "category": "Marketing",
-    "description": "Need a strategy for Instagram and Facebook growth.",
+    "description": "Need a detailed social media marketing strategy for Instagram and Facebook growth. This includes content planning, hashtag research, engagement strategies, and performance metrics.",
     "deadline": "2025-06-11",
     "budget": 120,
     "userEmail": "user4@example.com",
-    "userName": "Sadia Akter"
-  },
-  {
-    "title": "Fix bugs in existing MERN app",
-    "category": "Web Development",
-    "description": "Resolve API errors and UI bugs in dashboard.",
-    "deadline": "2025-06-09",
-    "budget": 90,
-    "userEmail": "user5@example.com",
-    "userName": "Zubair Ahmed"
-  },
-  {
-    "title": "Design a landing page UI",
-    "category": "Design",
-    "description": "Figma design for a SaaS product landing page.",
-    "deadline": "2025-06-08",
-    "budget": 70,
-    "userEmail": "user6@example.com",
-    "userName": "Tania Islam"
+    "userName": "Sadia Akter",
+    "totalBids": 2
   },
   {
     "title": "Write blog posts for tech site",
     "category": "Writing",
-    "description": "2 articles about AI tools and web frameworks.",
+    "description": "Write 2 articles about AI tools and web frameworks for a tech site. The content should be well-researched, engaging, and provide valuable insights for a tech-savvy audience.",
     "deadline": "2025-06-13",
     "budget": 110,
     "userEmail": "user7@example.com",
     "userName": "Rakibul Hasan"
   },
   {
-    "title": "Run Facebook ads for product launch",
-    "category": "Marketing",
-    "description": "Setup and manage Facebook ad campaign.",
-    "deadline": "2025-06-14",
-    "budget": 130,
-    "userEmail": "user8@example.com",
-    "userName": "Faria Tabassum"
+    "title": "Design graphics for Instagram posts",
+    "category": "Design",
+    "description": "Design 10 high-quality graphic templates for a digital agency's Instagram page. The designs should be visually appealing, on-brand, and optimized for Instagram's specifications.",
+    "deadline": "2025-06-18",
+    "budget": 90,
+    "userEmail": "user10@example.com",
+    "userName": "Shirin Nahar",
+    "totalBids": 3
+  },
+  {
+    "title": "Design a logo for a tech startup",
+    "category": "Design",
+    "description": "Create a minimalist and modern logo for a SaaS brand. The logo should be unique, memorable, and visually represent the company's innovative approach.",
+    "deadline": "2025-06-12",
+    "budget": 80,
+    "userEmail": "user2@example.com",
+    "userName": "Nusrat Jahan",
+    "totalBids": 1
+  },
+  {
+    "title": "Fix bugs in existing MERN app",
+    "category": "Web Development",
+    "description": "Resolve API errors and UI bugs in a MERN stack dashboard. This involves debugging server-side issues, front-end rendering problems, and ensuring smooth application functionality.",
+    "deadline": "2025-06-09",
+    "budget": 90,
+    "userEmail": "user5@example.com",
+    "userName": "Zubair Ahmed",
+    "totalBids": 2
+  },
+  {
+    "title": "Design a landing page UI",
+    "category": "Design",
+    "description": "Create a Figma design for a SaaS product landing page. The design should be user-friendly, visually appealing, and optimized for conversions, incorporating modern UI/UX principles.",
+    "deadline": "2025-06-08",
+    "budget": 70,
+    "userEmail": "user6@example.com",
+    "userName": "Tania Islam",
+    "totalBids": 3
   },
   {
     "title": "Create REST API with Express.js",
     "category": "Web Development",
-    "description": "API for a freelance job board app with auth.",
+    "description": "Develop a robust REST API with Express.js for a freelance job board application, including user authentication, job posting, bidding, and messaging functionalities.",
     "deadline": "2025-06-16",
     "budget": 200,
     "userEmail": "user9@example.com",
-    "userName": "Rezaul Karim"
+    "userName": "Rezaul Karim",
+    "totalBids": 1
   },
   {
-    "title": "Design graphics for Instagram posts",
-    "category": "Design",
-    "description": "10 templates for digital agency page.",
-    "deadline": "2025-06-18",
-    "budget": 90,
-    "userEmail": "user10@example.com",
-    "userName": "Shirin Nahar"
+    "title": "Develop mobile app UI in Flutter",
+    "category": "Mobile Development",
+    "description": "Need UI screens for a food delivery app developed in Flutter. The design should be intuitive, visually appealing, and provide a seamless user experience across different mobile devices.",
+    "deadline": "2025-06-25",
+    "budget": "100",
+    "userEmail": "piyalsha007@gmail.com",
+    "userName": "Piyal Islam",
+    "status": "pending",
+    "createdAt": "2025-05-22T18:26:10.393Z",
+    "totalBids": 0,
+    "updatedAt": "2025-05-23T10:08:40.237Z"
+  },
+  {
+    "title": "Optimize WordPress site speed",
+    "category": "Web Development",
+    "description": "Improve load time and fix core web vitals for an existing WordPress site. This includes optimizing images, caching, minifying CSS/JS, and addressing server-side performance issues.",
+    "deadline": "2025-06-20",
+    "budget": "120",
+    "userEmail": "piyalsha007@gmail.com",
+    "userName": "Piyal Islam",
+    "status": "pending",
+    "createdAt": "2025-05-22T18:27:41.452Z",
+    "totalBids": 0
   }
 ]
