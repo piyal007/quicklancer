@@ -83,16 +83,16 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex-1 md:flex justify-center">
               <div className="nav-middle space-x-4 *:font-semibold *:text-base-content *:hover:text-success *:transition-colors">
-                <NavLink to="/" className="md:text-sm">
+                <NavLink to="/" className="md:text-sm lg:text-lg">
                   Home
                 </NavLink>
-                <NavLink to="/addtask" className="md:text-sm">
+                <NavLink to="/addtask" className="md:text-sm lg:text-lg">
                   Add-Task
                 </NavLink>
-                <NavLink to="/browsetask" className="md:text-sm">
+                <NavLink to="/browsetask" className="md:text-sm lg:text-lg">
                   Browse-Tasks
                 </NavLink>
-                <NavLink to="/mypostedtask" className="md:text-sm">
+                <NavLink to="/mypostedtask" className="md:text-sm lg:text-lg">
                   My-Posted-Tasks
                 </NavLink>
               </div>
