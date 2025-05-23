@@ -83,10 +83,18 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex-1 md:flex justify-center">
               <div className="nav-middle space-x-4 *:font-semibold *:text-base-content *:hover:text-success *:transition-colors">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/addtask">Add-Task</NavLink>
-                <NavLink to="/browsetask">Browse-Tasks</NavLink>
-                <NavLink to="/mypostedtask">My-Posted-Tasks</NavLink>
+                <NavLink to="/" className="md:text-sm">
+                  Home
+                </NavLink>
+                <NavLink to="/addtask" className="md:text-sm">
+                  Add-Task
+                </NavLink>
+                <NavLink to="/browsetask" className="md:text-sm">
+                  Browse-Tasks
+                </NavLink>
+                <NavLink to="/mypostedtask" className="md:text-sm">
+                  My-Posted-Tasks
+                </NavLink>
               </div>
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
@@ -94,7 +102,7 @@ const Navbar = () => {
                 onClick={toggleTheme}
                 className="btn btn-circle btn-ghost mr-4"
               >
-                {theme === 'light' ? '🌙' : '☀️'}
+                {theme === "light" ? "🌙" : "☀️"}
               </button>
               <div className="nav-right flex items-center space-x-4 *:font-semibold">
                 {user ? (
@@ -146,7 +154,7 @@ const Navbar = () => {
                 onClick={toggleTheme}
                 className="btn btn-ghost text-left flex items-center gap-2"
               >
-                {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+                {theme === "light" ? "🌙" : "☀️"}
               </button>
               <NavLink to="/" className="block">
                 Home

@@ -1,6 +1,6 @@
 # QuickLancer - Freelance Marketplace
 
-**🔗 Live Site:** https://quicklancer-assignment.web.app
+**🔗 Live Site:** https://assignment-10-2e230.web.app/
 
 ## 📝 Overview
 
