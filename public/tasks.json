@@ -7,7 +7,8 @@
     "budget": 130,
     "userEmail": "user8@example.com",
     "userName": "Faria Tabassum",
-    "totalBids": 1
+    "totalBids": 1,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Build a portfolio website",
@@ -17,7 +18,8 @@
     "budget": 150,
     "userEmail": "user1@example.com",
     "userName": "Arif Rahman",
-    "totalBids": 2
+    "totalBids": 2,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Write 10 product descriptions",
@@ -27,7 +29,8 @@
     "budget": 100,
     "userEmail": "user3@example.com",
     "userName": "Mehedi Hasan",
-    "totalBids": 3
+    "totalBids": 3,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Create a social media marketing plan",
@@ -37,7 +40,8 @@
     "budget": 120,
     "userEmail": "user4@example.com",
     "userName": "Sadia Akter",
-    "totalBids": 2
+    "totalBids": 2,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Write blog posts for tech site",
@@ -46,7 +50,8 @@
     "deadline": "2025-06-13",
     "budget": 110,
     "userEmail": "user7@example.com",
-    "userName": "Rakibul Hasan"
+    "userName": "Rakibul Hasan",
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Design graphics for Instagram posts",
@@ -56,7 +61,8 @@
     "budget": 90,
     "userEmail": "user10@example.com",
     "userName": "Shirin Nahar",
-    "totalBids": 3
+    "totalBids": 3,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Design a logo for a tech startup",
@@ -66,7 +72,8 @@
     "budget": 80,
     "userEmail": "user2@example.com",
     "userName": "Nusrat Jahan",
-    "totalBids": 1
+    "totalBids": 1,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Fix bugs in existing MERN app",
@@ -76,7 +83,8 @@
     "budget": 90,
     "userEmail": "user5@example.com",
     "userName": "Zubair Ahmed",
-    "totalBids": 2
+    "totalBids": 2,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Design a landing page UI",
@@ -86,7 +94,8 @@
     "budget": 70,
     "userEmail": "user6@example.com",
     "userName": "Tania Islam",
-    "totalBids": 3
+    "totalBids": 3,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Create REST API with Express.js",
@@ -96,7 +105,8 @@
     "budget": 200,
     "userEmail": "user9@example.com",
     "userName": "Rezaul Karim",
-    "totalBids": 1
+    "totalBids": 1,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Develop mobile app UI in Flutter",
@@ -109,7 +119,8 @@
     "status": "pending",
     "createdAt": "2025-05-22T18:26:10.393Z",
     "totalBids": 0,
-    "updatedAt": "2025-05-23T10:08:40.237Z"
+    "updatedAt": "2025-05-23T10:08:40.237Z",
+    "postedDate": "2025-05-23T23:32:44+06:00"
   },
   {
     "title": "Optimize WordPress site speed",
@@ -121,6 +132,7 @@
     "userName": "Piyal Islam",
     "status": "pending",
     "createdAt": "2025-05-22T18:27:41.452Z",
-    "totalBids": 0
+    "totalBids": 0,
+    "postedDate": "2025-05-23T23:32:44+06:00"
   }
 ]
