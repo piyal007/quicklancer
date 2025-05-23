@@ -12,53 +12,52 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const result = await Swal.fire({
-        title: 'Are you sure?',
-        text: 'You will be logged out of your account',
-        icon: 'warning',
+        title: "Are you sure?",
+        text: "You will be logged out of your account",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, log out!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!",
       });
 
       if (result.isConfirmed) {
         await signOut(auth);
         Swal.fire({
-          title: 'Logged Out!',
-          text: 'You have been successfully logged out',
-          icon: 'success',
+          title: "Logged Out!",
+          text: "You have been successfully logged out",
+          icon: "success",
           timer: 2000,
-          showConfirmButton: false
+          showConfirmButton: false,
         });
       }
     } catch (error) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Error signing out: ' + error.message,
-        icon: 'error',
-        confirmButtonText: 'Ok'
+        title: "Error!",
+        text: "Error signing out: " + error.message,
+        icon: "error",
+        confirmButtonText: "Ok",
       });
     }
   };
 
   return (
     <>
-      <div className="bg-gray-50 shadow-md z-50">
+      <div className="bg-base-100 text-base-content z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
-              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-gray-900">
+              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-base-content hover:text-success">
                 QuickLancer
               </h2>
             </div>
 
             {/* Hamburger Menu Button */}
             <div className="flex items-center justify-between gap-2">
-              <div className="lg:hidden">
-              </div>
+              <div className="lg:hidden"></div>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden text-gray-700 focus:outline-none"
+                className="md:hidden text-base-content focus:outline-none"
               >
                 <svg
                   className="h-6 w-6"
@@ -80,7 +79,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex-1 md:flex justify-center">
-              <div className="nav-middle space-x-4 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
+              <div className="nav-middle space-x-4 *:font-semibold *:text-base-content *:hover:text-success *:transition-colors">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/addtask">Add-Task</NavLink>
                 <NavLink to="/browsetask">Browse-Tasks</NavLink>
@@ -98,25 +97,22 @@ const Navbar = () => {
                           "https://i.postimg.cc/yxzXkbkL/avatar.jpg"
                         }
                         alt="user"
-                        className="w-10 h-10 rounded-full cursor-pointer object-cover"
+                        className="w-10 h-10 rounded-full cursor-pointer object-cover bg-base-content text-base-100"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-base-content text-base-100 text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 min-w-max">
                         {user.displayName}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn transition-colors"
+                      className="btn bg-base-content text-base-100 transition-colors hover:text-success"
                     >
                       Log Out
                     </button>
                   </div>
                 ) : (
                   <>
-                    <NavLink
-                      to="/signin"
-                      className="btn transition-colors"
-                    >
+                    <NavLink to="/signin" className="btn transition-colors">
                       Sign In
                     </NavLink>
                     <NavLink
@@ -133,7 +129,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div className={`md:hidden ${isOpen ? "block" : "hidden"} pt-4`}>
-            <div className="flex flex-col space-y-3 *:font-semibold *:text-gray-700 *:hover:text-gray-900 *:transition-colors">
+            <div className="flex flex-col space-y-3 *:font-semibold *:text-base-content *:hover:text-gray-900 *:transition-colors">
               <NavLink to="/" className="block">
                 Home
               </NavLink>
@@ -147,8 +143,6 @@ const Navbar = () => {
                 My-Posted-Tasks
               </NavLink>
               <hr className="border-gray-300 my-2" />
-              <NavLink to="/add-job">Add Job</NavLink>
-              <hr className="border-gray-300 my-2" />
               {user ? (
                 <>
                   <div className="flex items-center gap-4">
@@ -156,7 +150,7 @@ const Navbar = () => {
                       <img
                         src={
                           user.photoURL ||
-                          "https://i.ibb.co/G2jQXGk/default-avatar.png"
+                          "https://i.postimg.cc/yxzXkbkL/avatar.jpg"
                         }
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover"
@@ -167,7 +161,8 @@ const Navbar = () => {
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn hover:text-gray-900 transition-colors"
+                      className="btn bg-base-100 text-base-content hover:text-success
+ transition-colors"
                     >
                       Log Out
                     </button>
@@ -175,10 +170,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <NavLink
-                    to="/signin"
-                    className="btn"
-                  >
+                  <NavLink to="/signin" className="btn">
                     Sign In
                   </NavLink>
                   <NavLink
