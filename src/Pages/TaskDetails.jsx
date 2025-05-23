@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
-import { toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const TaskDetails = () => {
     const { id } = useParams();
@@ -52,19 +52,46 @@ const TaskDetails = () => {
     const handleBid = async () => {
         try {
             if (!user) {
-                toast.error('Please login to place a bid');
+                toast.error('Please login to place a bid', {
+                    style: {
+                        background: '#FF5B5B',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: '10px',
+                    },
+                    icon: '🔒',
+                    duration: 3000,
+                });
                 return;
             }
 
             if (user.email === task.userEmail) {
-                toast.error('You cannot bid on your own task');
+                toast.error('You cannot bid on your own task', {
+                    style: {
+                        background: '#FF5B5B',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: '10px',
+                    },
+                    icon: '⚠️',
+                    duration: 3000,
+                });
                 return;
             }
 
             const currentDate = new Date();
             const taskDeadline = new Date(task.deadline);
             if (currentDate > taskDeadline) {
-                toast.error('This task has passed its deadline');
+                toast.error('This task has passed its deadline', {
+                    style: {
+                        background: '#FF5B5B',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: '10px',
+                    },
+                    icon: '⏰',
+                    duration: 3000,
+                });
                 return;
             }
 
@@ -73,7 +100,16 @@ const TaskDetails = () => {
             const checkData = await checkResponse.json();
 
             if (checkData.hasBid) {
-                toast.error('You have already placed a bid on this task');
+                toast.error('You have already placed a bid on this task', {
+                    style: {
+                        background: '#FF5B5B',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: '10px',
+                    },
+                    icon: '📝',
+                    duration: 3000,
+                });
                 return;
             }
 
@@ -111,7 +147,16 @@ const TaskDetails = () => {
                     fetchUserBidsCount()
                 ]);
 
-                toast.success('Your bid has been placed successfully!');
+                toast.success('Your bid has been placed successfully!', {
+                    style: {
+                        background: '#10B981',
+                        color: '#fff',
+                        padding: '16px',
+                        borderRadius: '10px',
+                    },
+                    icon: '🎉',
+                    duration: 3000,
+                });
             } else {
                 throw new Error(data.message || 'Failed to place bid');
             }
