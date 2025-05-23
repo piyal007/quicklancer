@@ -1,12 +1,50 @@
-# React + Vite
+# QuickLancer - Freelance Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**🔗 Live Site:** https://quicklancer-assignment.web.app
 
-Currently, two official plugins are available:
+## 📝 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+QuickLancer is a modern freelance platform built with **React** and **Firebase**, connecting freelancers with clients. It offers task posting, bidding, and secure interactions.
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🌗 Theme System
+
+* Light/Dark toggle
+* Persistent user preference
+* Smooth transitions
+
+### 🔐 Authentication
+
+* Firebase login (email/password)
+* User profiles
+* Protected routes
+
+### 📋 Task Management
+
+* Browse/post tasks
+* Bidding system
+* Track task progress
+
+### 📱 Responsive UI
+
+* Tailwind CSS + DaisyUI
+* Mobile-first
+* Cross-browser support
+
+### ⚙️ Advanced Tools
+
+* Real-time notifications
+* Task filtering/search
+* Ratings, reviews, payments
+
+## 🛠 Tech Stack
+
+* React.js, React Router DOM
+* Firebase (Auth, Firestore)
+* Tailwind CSS, DaisyUI
+* Context API
+
+## 📄 License
+
+MIT License. See `LICENSE` for details.
