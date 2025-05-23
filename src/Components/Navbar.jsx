@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Providers/AuthProvider";
+import { useTheme } from "../Providers/ThemeProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
 import Swal from "sweetalert2";
+
 const Navbar = () => {
   const { user } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -43,7 +46,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div data-theme="dark" className="bg-base-100 text-base-content z-50">
+      <div className="bg-base-100 text-base-content z-50">
         <div className="w-11/12 mx-auto py-4">
           <div className="flex justify-between items-center">
             <div className="nav-left">
@@ -87,6 +90,12 @@ const Navbar = () => {
               </div>
             </div>
             <div className="hidden md:flex items-center *:font-semibold">
+              <button
+                onClick={toggleTheme}
+                className="btn btn-circle btn-ghost mr-4"
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
               <div className="nav-right flex items-center space-x-4 *:font-semibold">
                 {user ? (
                   <div className="flex items-center gap-4">
@@ -133,6 +142,12 @@ const Navbar = () => {
           {/* Mobile Navigation */}
           <div className={`md:hidden ${isOpen ? "block" : "hidden"} pt-4`}>
             <div className="flex flex-col space-y-3 *:font-semibold *:text-base-content *:hover:text-success *:transition-colors">
+              <button
+                onClick={toggleTheme}
+                className="btn btn-ghost text-left flex items-center gap-2"
+              >
+                {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+              </button>
               <NavLink to="/" className="block">
                 Home
               </NavLink>

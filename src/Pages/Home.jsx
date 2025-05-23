@@ -3,14 +3,14 @@ import Banner from '../Components/Banner';
 import FeaturedTasks from '../Components/FeaturedTasks';
 import Category from '../Components/Category';
 import TopFreelancer from '../Components/TopFreelancer';
-import { Fade, Slide } from 'react-awesome-reveal';
+import { Slide } from 'react-awesome-reveal';
+import { useTheme } from '../Providers/ThemeProvider';
 
 const Home = () => {
+  const { theme } = useTheme();
+
   return (
-    <div
-      className="min-h-screen bg-base-100 text-base-content"
-      data-theme="dark"
-    >
+    <div className="min-h-screen bg-base-100 text-base-content" data-theme={theme}>
       <Slide>
         <Banner />
       </Slide>
