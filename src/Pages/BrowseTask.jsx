@@ -7,7 +7,7 @@ const BrowseTask = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  useEffect(() => {
+  const fetchTasks = () => {
     fetch("http://localhost:3000/tasks")
       .then((res) => {
         if (!res.ok) {
@@ -23,14 +23,22 @@ const BrowseTask = () => {
         console.error("Error fetching tasks:", error);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchTasks();
+    const interval = setInterval(fetchTasks, 5000);
+    return () => clearInterval(interval);
   }, []);
 
-  const filteredTasks = tasks.filter((task) => {
-    const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      task.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || task.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredTasks = tasks
+    .filter((task) => {
+      const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        task.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === "all" || task.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
 
   const categories = ["all", ...new Set(tasks.map((task) => task.category))];
 
