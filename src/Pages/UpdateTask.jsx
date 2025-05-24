@@ -29,6 +29,14 @@ const UpdateTask = () => {
         fetch(`http://localhost:3000/tasks/${id}`)
             .then(res => res.json())
             .then(data => {
+                const initialData = {
+                    title: data.title,
+                    category: data.category,
+                    description: data.description,
+                    deadline: data.deadline.split('T')[0],
+                    budget: data.budget
+                };
+                setInitialFormData(initialData);
                 setFormData({
                     title: data.title,
                     category: data.category,
@@ -48,8 +56,24 @@ const UpdateTask = () => {
         }));
     };
 
+    const [initialFormData, setInitialFormData] = useState(null);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Check if any changes were made
+        const hasChanges = Object.keys(formData).some(key => formData[key] !== initialFormData[key]);
+
+        if (!hasChanges) {
+            Swal.fire({
+                icon: 'info',
+                title: 'No Changes Detected',
+                text: 'Please make some changes before updating.',
+                showConfirmButton: true,
+                timer: 3000
+            });
+            return;
+        }
 
         const taskData = {
             ...formData,
