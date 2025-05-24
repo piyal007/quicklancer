@@ -164,12 +164,12 @@ const AddTask = () => {
               >
                 Deadline
               </label>
-              <div className="relative">
+              <div className="relative" onClick={() => document.getElementById('deadline').showPicker()}>
                 <input
                   type="text"
                   readOnly
                   value={formData.displayDeadline || ''}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                   placeholder="dd/mm/yyyy"
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -183,7 +183,7 @@ const AddTask = () => {
                   name="deadline"
                   value={formData.deadline}
                   onChange={handleChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer"
+                  className="absolute inset-0 opacity-0"
                   required
                   min={new Date().toISOString().split('T')[0]}
                 />

@@ -5,7 +5,7 @@ const FeaturedTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const fetchTasks = () => {
     fetch('http://localhost:3000/featured-tasks?limit=6')
       .then(res => {
         if (!res.ok) {
@@ -23,6 +23,13 @@ const FeaturedTasks = () => {
         console.error('Error fetching tasks:', error);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchTasks(); // Initial fetch
+    const interval = setInterval(fetchTasks, 5000); // Fetch every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
   if (loading) {
@@ -80,7 +87,7 @@ const FeaturedTasks = () => {
                     </svg>
                     <div class="flex flex-col">
                       <span class="text-xs text-gray-500">Budget</span>
-                      <span class="font-medium">$150</span>
+                      <span class="font-medium">${task.budget}</span>
                     </div>
                   </div>
                   <div class="flex flex-col space-y-2">
@@ -102,7 +109,13 @@ const FeaturedTasks = () => {
                         </svg>
                         <div class="flex flex-col items-end">
                           <span class="text-xs text-gray-500">Posted on</span>
-                            <span class="font-medium">May 23, 2025</span>
+                          <span class="font-medium">
+                              {new Date(task.postedDate).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                              })}
+                            </span>
                         </div>
                       </div>
                     </div>
@@ -123,7 +136,13 @@ const FeaturedTasks = () => {
                       </svg>
                       <div class="flex flex-col items-end">
                         <span class="text-xs text-gray-500">Deadline</span>
-                        <span class="font-medium">Jun 10, 2025</span>
+                        <span class="font-medium">
+                          {new Date(task.deadline).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
                       </div>
                     </div>
                   </div>
