@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const FeaturedTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchTasks = () => {
-    fetch('http://localhost:3000/featured-tasks?limit=6')
-      .then(res => {
+    fetch(
+      "https://assignment-10-server-ten-eosin.vercel.app/featured-tasks?limit=6"
+    )
+      .then((res) => {
         if (!res.ok) {
-          throw new Error('Failed to fetch tasks');
+          throw new Error("Failed to fetch tasks");
         }
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         // Sort tasks by deadline (most recent first)
-        const sortedTasks = data.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+        const sortedTasks = data.sort(
+          (a, b) => new Date(a.deadline) - new Date(b.deadline)
+        );
         setTasks(sortedTasks);
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error fetching tasks:', error);
+      .catch((error) => {
+        console.error("Error fetching tasks:", error);
         setLoading(false);
       });
   };
@@ -33,9 +37,11 @@ const FeaturedTasks = () => {
   }, []);
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-[400px]">
-      <span className="loading loading-spinner loading-lg"></span>
-    </div>;
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   return (
@@ -46,8 +52,8 @@ const FeaturedTasks = () => {
             Featured Tasks
           </h2>
           <p className="text-sm md:text-lg max-w-2xl mx-auto text-base-content">
-            Explore our featured opportunities and find the perfect project
-            for your skills
+            Explore our featured opportunities and find the perfect project for
+            your skills
           </p>
         </div>
 
@@ -110,12 +116,15 @@ const FeaturedTasks = () => {
                         <div class="flex flex-col items-end">
                           <span class="text-xs text-gray-500">Posted on</span>
                           <span class="font-medium">
-                              {new Date(task.postedDate).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'short',
-                                day: 'numeric'
-                              })}
-                            </span>
+                            {new Date(task.postedDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -137,10 +146,10 @@ const FeaturedTasks = () => {
                       <div class="flex flex-col items-end">
                         <span class="text-xs text-gray-500">Deadline</span>
                         <span class="font-medium">
-                          {new Date(task.deadline).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
+                          {new Date(task.deadline).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
                           })}
                         </span>
                       </div>

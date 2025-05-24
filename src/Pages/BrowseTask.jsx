@@ -8,7 +8,7 @@ const BrowseTask = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const fetchTasks = () => {
-    fetch("http://localhost:3000/tasks")
+    fetch("https://assignment-10-server-ten-eosin.vercel.app/tasks")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch tasks");
@@ -33,9 +33,11 @@ const BrowseTask = () => {
 
   const filteredTasks = tasks
     .filter((task) => {
-      const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      const matchesSearch =
+        task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         task.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === "all" || task.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === "all" || task.category === selectedCategory;
       return matchesSearch && matchesCategory;
     })
     .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
@@ -54,8 +56,12 @@ const BrowseTask = () => {
     <div className="bg-gray-50 min-h-screen py-12">
       <div className="w-11/12 max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Browse Tasks</h1>
-          <p className="text-lg text-gray-600">Find the perfect task that matches your skills</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Browse Tasks
+          </h1>
+          <p className="text-lg text-gray-600">
+            Find the perfect task that matches your skills
+          </p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -136,13 +142,18 @@ const BrowseTask = () => {
                           ></path>
                         </svg>
                         <div className="flex flex-col items-end">
-                          <span className="text-xs text-gray-500">Posted on</span>
+                          <span className="text-xs text-gray-500">
+                            Posted on
+                          </span>
                           <span className="font-medium">
-                            {new Date(task.postedDate).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                            })}
+                            {new Date(task.postedDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
                           </span>
                         </div>
                       </div>
