@@ -54,7 +54,7 @@ const MyPostedTask = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12">
+    <div className="bg-gray-50 min-h-screen py-12 pt-24 md:pt-28">
       <div className="w-11/12 max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Posted Tasks</h1>

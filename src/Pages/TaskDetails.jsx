@@ -179,7 +179,7 @@ const TaskDetails = () => {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-base-100 to-base-200">
+    <div className="min-h-screen py-12 pt-24 md:pt-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-base-100 to-base-200">
       <div className="max-w-5xl mx-auto">
         <div className="mb-8 flex justify-end">
           <div className="p-4 bg-success/10 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all">

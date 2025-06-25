@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Components/Footer';
@@ -9,6 +9,7 @@ import { useTheme } from '../Providers/ThemeProvider';
 const MainLayout = () => {
   const { theme } = useTheme();
   const [loading, setLoading] = useState(true);
+  const navRef = useRef(null);
 
   useEffect(() => {
     // Simulate loading time
@@ -16,6 +17,7 @@ const MainLayout = () => {
       setLoading(false);
     }, 1000);
   }, []);
+
 
   if (loading) {
     return (
@@ -27,10 +29,12 @@ const MainLayout = () => {
 
   return (
     <div>
-      <div data-theme={theme}>
+      <div data-theme={theme} ref={navRef}>
         <Navbar></Navbar>
       </div>
-      <Outlet></Outlet>
+      <div className="transition-all duration-300">
+        <Outlet></Outlet>
+      </div>
       <div data-theme={theme}>
         <Footer></Footer>
       </div>
