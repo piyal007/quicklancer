@@ -36,6 +36,30 @@ const router = createBrowserRouter([
         Component: BrowseTask
       },
       {
+        path: "addtask",
+        element: (
+          <PrivateRoute>
+            <AddTask />
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "my-posted-tasks",
+        element: (
+          <PrivateRoute>
+            <MyPostedTask />
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "update-task/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateTask />
+          </PrivateRoute>
+        )
+      },
+      {
         path: "/task-details/:id",
         element: (
           <PrivateRoute>
@@ -57,18 +81,9 @@ const router = createBrowserRouter([
         index: true,
         element: <Overview />
       },
-      {
-        path: "add-task",
-        element: <AddTask />
-      },
-      {
-        path: "my-posted-tasks",
-        element: <MyPostedTask />
-      },
-      {
-        path: "update-task/:id",
-        element: <UpdateTask />
-      }
+      
+      
+      
     ]
   }
 ]);

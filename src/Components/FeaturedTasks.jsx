@@ -48,13 +48,10 @@ const FeaturedTasks = () => {
     <div className="py-8 bg-gradient-to-b from-base-100 to-blue-50 text-base-content">
       <div className="w-11/12 mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content">
+          <h2 className="text-4xl md:text-5xl font-bold pb-2 text-base-content">
             Featured Tasks
           </h2>
-          <p className="text-sm md:text-lg max-w-2xl mx-auto text-base-content">
-            Explore our featured opportunities and find the perfect project for
-            your skills
-          </p>
+          <hr className="w-2/12 mx-auto border-2 border-blue-500" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">

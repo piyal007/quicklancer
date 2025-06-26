@@ -1,72 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../Providers/AuthProvider';
 import { FaClipboardList, FaTasks, FaCheckCircle, FaClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Overview = () => {
     const { user } = useAuth();
     const [stats, setStats] = useState({
         totalTasks: 0,
         myPostedTasks: 0,
-        myBids: 0,
-        pendingBids: 0
+        myBids: 0
     });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchStats = async () => {
             try {
+                console.log('User object:', user);
                 const headers = {
                     'authorization': `Bearer ${localStorage.getItem('access-token')}`
                 };
 
                 // Fetch total tasks
-                // Fetch total tasks
+                console.log('Fetching all tasks...');
                 const tasksResponse = await fetch('https://assignment-10-server-ten-eosin.vercel.app/tasks', {
                     headers
                 });
-                if (!tasksResponse.ok) throw new Error('Failed to fetch tasks');
+                console.log('Tasks response status:', tasksResponse.status);
                 const tasksData = await tasksResponse.json();
                 console.log('Tasks data:', tasksData);
 
                 // Fetch user's posted tasks
-                const postedTasksResponse = await fetch(`https://assignment-10-server-ten-eosin.vercel.app/my-tasks?email=${user.email}`, {
+                console.log('Fetching posted tasks for:', user?.email);
+                const postedTasksResponse = await fetch(`https://assignment-10-server-ten-eosin.vercel.app/my-tasks?email=${user?.email}`, {
                     headers
                 });
-                if (!postedTasksResponse.ok) throw new Error('Failed to fetch posted tasks');
+                console.log('Posted tasks response status:', postedTasksResponse.status);
                 const postedTasksData = await postedTasksResponse.json();
                 console.log('Posted tasks data:', postedTasksData);
 
                 // Fetch user's bids count
-                const bidsResponse = await fetch(`https://assignment-10-server-ten-eosin.vercel.app/bids/${user.email}`, {
+                console.log('Fetching bids for:', user?.email);
+                const bidsResponse = await fetch(`https://assignment-10-server-ten-eosin.vercel.app/bids/${user?.email}`, {
                     headers
                 });
-                if (!bidsResponse.ok) throw new Error('Failed to fetch bids count');
+                console.log('Bids response status:', bidsResponse.status);
                 const bidsData = await bidsResponse.json();
                 console.log('Bids data:', bidsData);
-
-                // Get all bids to calculate pending ones
-                const allBidsResponse = await fetch(`https://assignment-10-server-ten-eosin.vercel.app/bids`, {
-                    headers
-                });
-                if (!allBidsResponse.ok) throw new Error('Failed to fetch all bids');
-                const allBidsData = await allBidsResponse.json();
-                console.log('All bids data:', allBidsData);
-                const pendingBids = allBidsData.filter(bid => bid.userEmail === user.email && bid.status === 'pending').length;
 
                 setStats({
                     totalTasks: tasksData.length,
                     myPostedTasks: postedTasksData.length,
-                    myBids: bidsData.bidCount,
-                    pendingBids: pendingBids
+                    myBids: bidsData.bidCount
                 });
                 setLoading(false);
             } catch (error) {
-                console.error('Error fetching stats:', error.message);
+                console.error('Error fetching stats:', error);
                 setStats({
                     totalTasks: 0,
                     myPostedTasks: 0,
-                    myBids: 0,
-                    pendingBids: 0
+                    myBids: 0
                 });
                 setLoading(false);
             }
@@ -77,15 +69,7 @@ const Overview = () => {
             fetchStats();
         }
 
-        // Set up interval for periodic updates
-        const intervalId = setInterval(() => {
-            if (user?.email) {
-                fetchStats();
-            }
-        }, 5000); // Refresh every 5 seconds
-
-        // Cleanup interval on component unmount
-        return () => clearInterval(intervalId);
+        // No interval, only fetch once
     }, [user]);
 
     if (loading) {
@@ -105,7 +89,7 @@ const Overview = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* Total Tasks */}
                 <div className="bg-base-200 p-6 rounded-lg">
                     <div className="flex items-center justify-between">
@@ -141,19 +125,6 @@ const Overview = () => {
                         </div>
                         <div className="bg-accent/20 p-3 rounded-full">
                             <FaCheckCircle className="text-accent text-xl" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Pending Bids */}
-                <div className="bg-base-200 p-6 rounded-lg">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <p className="text-sm text-base-content/70">Pending Bids</p>
-                            <h3 className="text-2xl font-bold mt-1">{stats.pendingBids}</h3>
-                        </div>
-                        <div className="bg-warning/20 p-3 rounded-full">
-                            <FaClock className="text-warning text-xl" />
                         </div>
                     </div>
                 </div>

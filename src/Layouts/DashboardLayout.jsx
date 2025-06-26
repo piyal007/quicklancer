@@ -60,30 +60,6 @@ const DashboardLayout = () => {
                                     <FaChartBar /> Overview
                                 </Link>
                             </li>
-                            <li>
-                                <Link
-                                    to="/dashboard/my-posted-tasks"
-                                    className={`flex items-center gap-2 ${location.pathname === '/dashboard/my-posted-tasks' ? 'active' : ''}`}
-                                >
-                                    <FaClipboardList /> My Posted Tasks
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/dashboard/add-task"
-                                    className={`flex items-center gap-2 ${location.pathname === '/dashboard/add-task' ? 'active' : ''}`}
-                                >
-                                    <FaPlus /> Add Task
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/dashboard/my-bids"
-                                    className={`flex items-center gap-2 ${location.pathname === '/dashboard/my-bids' ? 'active' : ''}`}
-                                >
-                                    <FaTasks /> My Bids
-                                </Link>
-                            </li>
                             <div className="divider"></div>
                             <li>
                                 <Link

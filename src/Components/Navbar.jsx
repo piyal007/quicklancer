@@ -110,7 +110,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
                 <NavLink
-                  to="/addtask"
+                  to="/dashboard/add-task"
                   className={({ isActive }) =>
                     isActive
                       ? "active font-medium nav-link"
@@ -130,7 +130,7 @@ const Navbar = () => {
                   Browse Tasks
                 </NavLink>
                 <NavLink
-                  to="/mypostedtask"
+                  to="/dashboard/my-posted-tasks"
                   className={({ isActive }) =>
                     isActive
                       ? "active font-medium nav-link"
@@ -215,7 +215,7 @@ const Navbar = () => {
                 Home
               </NavLink>
               <NavLink 
-                to="/addtask" 
+                to="/dashboard/add-task" 
                 className={({ isActive }) =>
                   isActive
                     ? "block py-1 border-l-2 border-success pl-2 active font-medium nav-link"
@@ -235,7 +235,7 @@ const Navbar = () => {
                 Browse Tasks
               </NavLink>
               <NavLink 
-                to="/mypostedtask" 
+                to="/dashboard/my-posted-tasks" 
                 className={({ isActive }) =>
                   isActive
                     ? "block py-1 border-l-2 border-success pl-2 active font-medium nav-link"

@@ -112,8 +112,8 @@ const TopFreelancer = () => {
     <div className='bg-base-100 text-base-content py-16 pt-24 md:pt-28'>
       <div className='w-11/12 mx-auto'>
         <div className='text-center mb-10'>
-          <h2 className='text-4xl md:text-5xl font-bold mb-6 text-base-content'>Top Rated Freelancers</h2>
-          <p className='text-sm md:text-lg max-w-2xl mx-auto text-base-content mb-8'>Connect with our highly skilled and trusted freelance professionals</p>
+          <h2 className='text-4xl md:text-5xl font-bold pb-2 text-base-content'>Top Rated Freelancers</h2>
+          <hr className='w-2/12 mx-auto border-2 border-blue-500' />
         </div>
         
         <div className='relative'>

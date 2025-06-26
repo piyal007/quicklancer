@@ -32,7 +32,11 @@ const Testimonials = () => {
     return (
         <div className="py-16 bg-base-200">
             <div className="w-11/12 mx-auto">
-                <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+            <div className='text-center mb-12'>
+            <h2 className="text-4xl font-bold text-center pb-2">What Our Clients Say</h2>
+            <hr className='w-2/12 mx-auto border-2 border-blue-500' />
+            </div>
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {testimonials.map((testimonial) => (
                         <div key={testimonial.id} className="bg-base-100 p-6 rounded-lg shadow-lg">

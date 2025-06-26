@@ -37,9 +37,8 @@ const Category = () => {
       <div className="bg-base-100 text-base-content py-8 pt-16 md:pt-20">
         <div className="w-11/12 mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content">Browse Services By Category</h2>
-            <p className="text-sm md:text-lg max-w-2xl mx-auto text-base-content mb-8">Discover a wide range of professional services tailored to your needs</p>
-            
+            <h2 className="text-4xl md:text-5xl font-bold pb-2 text-base-content">Browse Category</h2>
+            <hr className="w-2/12 mx-auto border-2 border-blue-500" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {categories.map((category, index) => (
