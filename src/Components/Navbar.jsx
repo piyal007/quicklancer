@@ -63,7 +63,7 @@ const Navbar = () => {
   return (
     <>
       <div className={`bg-gradient-to-r from-base-100 to-base-200 text-base-content z-50 ${scrolled ? 'shadow-lg py-1 backdrop-blur-sm bg-opacity-95' : 'shadow-md py-3'} fixed top-0 w-full transition-all duration-300`}>
-        <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
             <div className="nav-left">
               <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-base-content transition-all duration-300 transform hover:scale-105 hover:text-shadow">
