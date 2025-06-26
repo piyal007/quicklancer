@@ -32,7 +32,7 @@ const MainLayout = () => {
       <div data-theme={theme} ref={navRef}>
         <Navbar></Navbar>
       </div>
-      <div className="transition-all duration-300">
+      <div className="transition-all duration-300 -mt-[1px]">
         <Outlet></Outlet>
       </div>
       <div data-theme={theme}>

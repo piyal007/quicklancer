@@ -45,7 +45,7 @@ const FeaturedTasks = () => {
   }
 
   return (
-    <div className="py-10 md:pt-15 bg-gradient-to-b from-base-100 to-blue-50 text-base-content">
+    <div className="py-8 bg-gradient-to-b from-base-100 to-blue-50 text-base-content">
       <div className="w-11/12 max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content">

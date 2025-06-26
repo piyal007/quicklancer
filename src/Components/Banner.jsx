@@ -49,7 +49,7 @@ const Banner = () => {
 
     return (
         <>
-            <div className="w-full relative h-[70vh] md:h-[75vh] lg:h-[80vh] overflow-hidden mt-[45px] md:mt-[55px] lg:mt-[65px]">
+            <div className="w-full relative h-[70vh] md:h-[75vh] lg:h-[80vh] overflow-hidden mt-0">
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <div 

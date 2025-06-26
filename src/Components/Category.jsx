@@ -34,7 +34,7 @@ const Category = () => {
 
   return (
     <>
-      <div className="bg-base-100 text-base-content py-12 pt-24 md:pt-28">
+      <div className="bg-base-100 text-base-content py-8 pt-16 md:pt-20">
         <div className="w-11/12 mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-10">
             <h2 className="text-3xl font-bold">Browse Services By Category</h2>
