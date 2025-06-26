@@ -63,7 +63,7 @@ const Navbar = () => {
   return (
     <>
       <div className={`bg-gradient-to-r from-base-100 to-base-200 text-base-content z-[1000] ${scrolled ? 'shadow-lg py-0 backdrop-blur-sm bg-opacity-95' : 'shadow-md py-1'} fixed top-0 w-full transition-all duration-300`}>
-        <div className="w-full max-w-7xl mx-auto">
+        <div className="w-11/12 mx-auto">
           <div className="flex justify-between items-center">
             <div className="nav-left">
               <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-base-content transition-all duration-300 transform hover:scale-105 hover:text-shadow">
@@ -161,9 +161,12 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover bg-base-content text-base-100 border-2 border-success shadow-md"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-base-content text-base-100 text-sm py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 min-w-max shadow-lg border border-success/20 backdrop-blur-sm">
-                        {user.displayName}
-                      </span>
+                      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-base-content text-base-100 text-sm py-2 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 min-w-max shadow-lg border border-success/20 backdrop-blur-sm flex flex-col gap-2">
+                        <span>{user.displayName}</span>
+                        <NavLink to="/dashboard" className="hover:text-success transition-colors">
+                          Dashboard
+                        </NavLink>
+                      </div>
                     </div>
                     <button
                       onClick={handleLogout}
@@ -254,9 +257,12 @@ const Navbar = () => {
                         alt="user"
                         className="w-10 h-10 rounded-full cursor-pointer object-cover border-2 border-success shadow-md"
                       />
-                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-base-content text-base-100 text-sm py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 min-w-max shadow-lg border border-success/20 backdrop-blur-sm">
-                        {user.displayName}
-                      </span>
+                      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-base-content text-base-100 text-sm py-2 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 min-w-max shadow-lg border border-success/20 backdrop-blur-sm flex flex-col gap-2">
+                        <span>{user.displayName}</span>
+                        <NavLink to="/dashboard" className="hover:text-success transition-colors">
+                          Dashboard
+                        </NavLink>
+                      </div>
                     </div>
                     <button
                       onClick={handleLogout}

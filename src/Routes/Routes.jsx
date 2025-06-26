@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
+import DashboardLayout from "../Layouts/DashboardLayout";
 import SignIn from "../Pages/SignIn";
 import Signup from "../Pages/Signup";
 import Home from "../Pages/Home";
@@ -9,6 +10,7 @@ import BrowseTask from "../Pages/BrowseTask";
 import MyPostedTask from "../Pages/MyPostedTask";
 import UpdateTask from "../Pages/UpdateTask";
 import TaskDetails from "../Pages/TaskDetails";
+import Overview from "../Pages/Dashboard/Overview";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -30,32 +32,8 @@ const router = createBrowserRouter([
         Component: Signup,
       },
       {
-        path: "addtask",
-        element: (
-          <PrivateRoute>
-            <AddTask />
-          </PrivateRoute>
-        )
-      },
-      {
         path: "browsetask",
         Component: BrowseTask
-      },
-      {
-        path: "mypostedtask",
-        element: (
-          <PrivateRoute>
-            <MyPostedTask />
-          </PrivateRoute>
-        )
-      },
-      {
-        path: "update-task/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateTask />
-          </PrivateRoute>
-        )
       },
       {
         path: "/task-details/:id",
@@ -67,6 +45,32 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Overview />
+      },
+      {
+        path: "add-task",
+        element: <AddTask />
+      },
+      {
+        path: "my-posted-tasks",
+        element: <MyPostedTask />
+      },
+      {
+        path: "update-task/:id",
+        element: <UpdateTask />
+      }
+    ]
+  }
 ]);
 
 export default router;

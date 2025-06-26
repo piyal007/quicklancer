@@ -3,6 +3,7 @@ import Banner from '../Components/Banner';
 import FeaturedTasks from '../Components/FeaturedTasks';
 import Category from '../Components/Category';
 import TopFreelancer from '../Components/TopFreelancer';
+import Testimonials from '../Components/Testimonials';
 import { Slide } from 'react-awesome-reveal';
 import { useTheme } from '../Providers/ThemeProvider';
 
@@ -22,6 +23,9 @@ const Home = () => {
       </Slide>
       <Slide>
         <TopFreelancer />
+      </Slide>
+      <Slide>
+        <Testimonials />
       </Slide>
     </div>
   );

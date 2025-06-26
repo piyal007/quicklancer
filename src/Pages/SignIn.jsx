@@ -10,15 +10,34 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
+  const navigate = useNavigate();
+
+  const getJWTToken = async (user) => {
+    try {
+      const response = await fetch('https://assignment-10-server-ten-eosin.vercel.app/jwt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: user.email })
+      });
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem('access-token', data.token);
+      }
+    } catch (error) {
+      console.error('Error getting JWT token:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       if (result.user) {
+        await getJWTToken(result.user);
         Swal.fire({
           icon: 'success',
           title: 'Welcome back! 👋',
@@ -53,13 +72,12 @@ const SignIn = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       if (result.user) {
+        await getJWTToken(result.user);
         Swal.fire({
           icon: 'success',
           title: 'Welcome!',

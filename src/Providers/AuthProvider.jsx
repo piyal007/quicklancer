@@ -17,8 +17,16 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
+            if (currentUser) {
+                // Get the ID token and store it in localStorage
+                const token = await currentUser.getIdToken();
+                localStorage.setItem('access-token', token);
+            } else {
+                // Remove token when user is not authenticated
+                localStorage.removeItem('access-token');
+            }
             setLoading(false);
         });
 

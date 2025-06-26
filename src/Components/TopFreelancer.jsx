@@ -111,9 +111,9 @@ const TopFreelancer = () => {
   return (
     <div className='bg-base-100 text-base-content py-16 pt-24 md:pt-28'>
       <div className='w-11/12 mx-auto'>
-        <div className='flex justify-between items-center mb-8'>
-          <h2 className='text-3xl font-bold'>Top Rated Freelancers</h2>
-          <button className="btn px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 font-semibold text-sm md:text-base">Explore All Freelancers</button>
+        <div className='text-center mb-10'>
+          <h2 className='text-4xl md:text-5xl font-bold mb-6 text-base-content'>Top Rated Freelancers</h2>
+          <p className='text-sm md:text-lg max-w-2xl mx-auto text-base-content mb-8'>Connect with our highly skilled and trusted freelance professionals</p>
         </div>
         
         <div className='relative'>

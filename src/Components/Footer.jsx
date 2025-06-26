@@ -77,9 +77,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <div className="space-y-3 *:text-base-content/80 *:hover:text-success *:block *:transition-colors">
-              <Link to="/browse-tasks">Browse Tasks</Link>
-              <Link to="/post-task">Post a Task</Link>
-              <Link to="/how-it-works">How it Works</Link>
+              <Link to="/browsetask">Browse Tasks</Link>
+              <Link to="/addtask">Add a Task</Link>
+              <Link to="/mypostedtask">My Task</Link>
               <Link to="/about">About Us</Link>
               <Link to="/contact">Contact</Link>
             </div>

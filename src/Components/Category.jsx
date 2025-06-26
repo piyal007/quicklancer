@@ -36,11 +36,10 @@ const Category = () => {
     <>
       <div className="bg-base-100 text-base-content py-8 pt-16 md:pt-20">
         <div className="w-11/12 mx-auto">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-10">
-            <h2 className="text-3xl font-bold">Browse Services By Category</h2>
-            <button className="btn px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 font-semibold text-sm md:text-base">
-              Explore All Categories
-            </button>
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-base-content">Browse Services By Category</h2>
+            <p className="text-sm md:text-lg max-w-2xl mx-auto text-base-content mb-8">Discover a wide range of professional services tailored to your needs</p>
+            
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {categories.map((category, index) => (
