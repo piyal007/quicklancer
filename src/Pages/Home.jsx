@@ -22,10 +22,10 @@ const Home = () => {
         <Category />
       </Slide>
       <Slide>
-        <TopFreelancer />
+        <Testimonials />
       </Slide>
       <Slide>
-        <Testimonials />
+        <TopFreelancer />
       </Slide>
     </div>
   );
