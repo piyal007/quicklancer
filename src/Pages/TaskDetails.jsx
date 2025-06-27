@@ -173,7 +173,7 @@ const TaskDetails = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <span className="custom_loading"></span>
+        <span className="custom_loader"></span>
       </div>
     );
   }
@@ -181,7 +181,7 @@ const TaskDetails = () => {
   return (
     <div className="min-h-screen py-12 pt-24 md:pt-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-base-100 to-base-200">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-8 flex justify-end">
+        <div className="mb-8 flex justify-end items-center">
           <div className="p-4 bg-success/10 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all">
             <p className="text-success font-semibold flex items-center gap-2">
               <svg
@@ -202,9 +202,16 @@ const TaskDetails = () => {
         </div>
 
         <div className="bg-base-100 rounded-3xl shadow-xl overflow-hidden transition-all hover:shadow-2xl border border-base-300">
+          {/* Image at the top */}
+          <img
+            src={task.image}
+            alt={task.title}
+            className="w-full h-64 object-cover"
+          />
           <div className="p-8 sm:p-10">
             <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8">
               <div className="space-y-4">
+                
                 <h1 className="text-3xl sm:text-4xl font-bold text-base-content mb-2 leading-tight">
                   {task.title}
                 </h1>

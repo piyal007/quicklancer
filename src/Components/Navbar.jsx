@@ -62,7 +62,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`bg-gradient-to-r from-base-100 to-base-200 text-base-content z-[1000] ${scrolled ? 'shadow-lg py-0 backdrop-blur-sm bg-opacity-95' : 'shadow-md py-1'} fixed top-0 w-full transition-all duration-300`}>
+      <div className={`bg-base-200 text-base-content z-[1000] ${scrolled ? 'shadow-lg py-0 backdrop-blur-sm bg-opacity-95' : 'shadow-md py-1'} fixed top-0 w-full transition-all duration-300`}>
         <div className="w-11/12 mx-auto">
           <div className="flex justify-between items-center">
             <div className="nav-left">
@@ -215,7 +215,7 @@ const Navbar = () => {
                 Home
               </NavLink>
               <NavLink 
-                to="/dashboard/add-task" 
+                to="/add_task" 
                 className={({ isActive }) =>
                   isActive
                     ? "block py-1 border-l-2 border-success pl-2 active font-medium nav-link"
@@ -225,7 +225,7 @@ const Navbar = () => {
                 Add Task
               </NavLink>
               <NavLink 
-                to="/browsetask" 
+                to="/all_tasks" 
                 className={({ isActive }) =>
                   isActive
                     ? "block py-1 border-l-2 border-success pl-2 active font-medium nav-link"
@@ -235,7 +235,7 @@ const Navbar = () => {
                 Browse Tasks
               </NavLink>
               <NavLink 
-                to="/dashboard/my-posted-tasks" 
+                to="/my_tasks" 
                 className={({ isActive }) =>
                   isActive
                     ? "block py-1 border-l-2 border-success pl-2 active font-medium nav-link"

@@ -60,6 +60,11 @@ const FeaturedTasks = () => {
               key={task._id}
               className="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100/20 backdrop-blur-sm"
             >
+              <img
+                src={task.image}
+                alt={task.title}
+                className="w-full h-40 object-cover object-center rounded-t-xl"
+              />
               <div className="p-8 relative z-10 backdrop-blur-sm bg-white/80">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 min-h-[3rem]">
