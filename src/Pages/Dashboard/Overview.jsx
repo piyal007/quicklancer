@@ -75,7 +75,7 @@ const Overview = () => {
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                <span class="custom_loader"></span>
             </div>
         );
     }
@@ -84,8 +84,7 @@ const Overview = () => {
         <div className="space-y-6">
             {/* Welcome Section */}
             <div className="bg-base-200 rounded-lg p-6">
-                <h2 className="text-2xl font-bold mb-2">Welcome back, {user?.displayName}! 👋</h2>
-                <p className="text-base-content/70">Here's what's happening with your tasks and bids today.</p>
+                <h2 className="text-2xl font-bold mb-2">Welcome back, {user?.displayName}!</h2>
             </div>
 
             {/* Stats Grid */}

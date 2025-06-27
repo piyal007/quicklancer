@@ -170,7 +170,7 @@ const Navbar = () => {
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="btn btn-sm bg-gradient-to-r from-success to-success/80 text-white border-none hover:opacity-90 transition-all duration-300 shadow-md"
+                      className="btn btn-sm bg-red-500 text-white border-none hover:opacity-90 transition-all duration-300 shadow-md"
                     >
                       Log Out
                     </button>

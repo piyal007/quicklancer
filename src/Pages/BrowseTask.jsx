@@ -47,7 +47,7 @@ const BrowseTask = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <span className="loading loading-spinner loading-lg"></span>
+        <span className="custom_loader"></span>
       </div>
     );
   }

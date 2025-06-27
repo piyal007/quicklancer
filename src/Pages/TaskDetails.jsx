@@ -173,7 +173,7 @@ const TaskDetails = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <span className="loading loading-spinner loading-lg"></span>
+        <span className="custom_loading"></span>
       </div>
     );
   }
