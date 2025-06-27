@@ -16,13 +16,13 @@ const Banner = () => {
              id: 2,
              title: "Find the perfect match for your project",
              subtitle: "Connect with skilled professionals in minutes",
-             image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+             image: "https://i.postimg.cc/jdfDpm6c/qslider2.png"
          },
          {
              id: 3,
              title: "Quality work at competitive prices",
              subtitle: "Get your tasks done efficiently and affordably",
-             image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+             image: "https://i.postimg.cc/T2C0yyBF/qslider.png"
          }
      ];
 
@@ -49,7 +49,7 @@ const Banner = () => {
 
     return (
         <>
-            <div className="w-full relative h-[70vh] md:h-[75vh] lg:h-[80vh] overflow-hidden mt-0">
+            <div className="w-full relative h-[80vh] md:h-[85vh] lg:h-[90vh] overflow-hidden mt-0">
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <div 

@@ -83,7 +83,7 @@ const Footer = () => {
             <div className="space-y-3 *:text-base-content/80 *:hover:text-success *:block *:transition-colors">
               <Link to="/all_tasks">All Tasks</Link>
               <Link to="/add_task">Add a Task</Link>
-              <Link to="/my_task">My Task</Link>
+              <Link to="/my_tasks">My Task</Link>
               <Link to="/about">About Us</Link>
               <Link to="/contact">Contact</Link>
             </div>
