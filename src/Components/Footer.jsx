@@ -8,14 +8,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h2 className="font-rancho text-3xl font-bold">QuickLancer</h2>
+          <div className="nav-left">
+              <h2 className="cursor-pointer text-2xl md:text-3xl font-bold font-rancho text-base-content transition-all duration-300 transform hover:scale-105 hover:text-shadow">
+                <span className="text-success">Quick</span>Lancer
+              </h2>
+            </div>
             <p className="text-sm opacity-80 max-w-xs">
               Connecting talented freelancers with amazing projects. Your
               success story begins here.
             </p>
             <div className="flex space-x-4 *:text-base-content">
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/piyal.islam.666"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-600 transition-colors"
@@ -29,7 +33,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/piyal_sha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors"
@@ -43,7 +47,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/piyal-islam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-700 transition-colors"
@@ -57,7 +61,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/dev_piyal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-pink-600 transition-colors"
@@ -77,9 +81,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <div className="space-y-3 *:text-base-content/80 *:hover:text-success *:block *:transition-colors">
-              <Link to="/browsetask">Browse Tasks</Link>
-              <Link to="/addtask">Add a Task</Link>
-              <Link to="/mypostedtask">My Task</Link>
+              <Link to="/all_tasks">All Tasks</Link>
+              <Link to="/add_task">Add a Task</Link>
+              <Link to="/my_task">My Task</Link>
               <Link to="/about">About Us</Link>
               <Link to="/contact">Contact</Link>
             </div>

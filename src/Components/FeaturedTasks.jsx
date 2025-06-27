@@ -69,8 +69,8 @@ const FeaturedTasks = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3 text-base leading-relaxed transition-all duration-300">
                   {task.description}
                 </p>
-                <div class=" mb-6 flex flex-col gap-2">
-{/* test */}
+                <div className=" mb-6 flex flex-col gap-2">
+{/* budged */}
 <div className="stats shadow">
   <div className="stat">
     <div className="stat-figure text-success">
@@ -101,7 +101,7 @@ const FeaturedTasks = () => {
 
                 <Link
                   to={`/task-details/${task._id}`}
-                  className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 px-6 rounded-lg transition-all duration-300 shadow-sm hover:shadow-lg transform active:scale-95"
+                  className="btn btn-outline btn-success w-full text-center hover:text-white text-success font-semibold py-3.5 px-6 rounded-lg transition-all duration-300 shadow-sm hover:shadow-lg transform active:scale-95"
                 >
                   See Details
                 </Link>
