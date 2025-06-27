@@ -110,7 +110,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
                 <NavLink
-                  to="/dashboard/add-task"
+                  to="add_task"
                   className={({ isActive }) =>
                     isActive
                       ? "active font-medium nav-link"
@@ -120,17 +120,17 @@ const Navbar = () => {
                   Add Task
                 </NavLink>
                 <NavLink
-                  to="/browsetask"
+                  to="/all_tasks"
                   className={({ isActive }) =>
                     isActive
                       ? "active font-medium nav-link"
                       : "font-medium text-base-content hover:text-success nav-link"
                   }
                 >
-                  Browse Tasks
+                  All Tasks
                 </NavLink>
                 <NavLink
-                  to="/dashboard/my-posted-tasks"
+                  to="/my_tasks"
                   className={({ isActive }) =>
                     isActive
                       ? "active font-medium nav-link"

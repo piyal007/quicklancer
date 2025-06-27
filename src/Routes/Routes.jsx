@@ -32,11 +32,11 @@ const router = createBrowserRouter([
         Component: Signup,
       },
       {
-        path: "browsetask",
+        path: "all_tasks",
         Component: BrowseTask
       },
       {
-        path: "addtask",
+        path: "add_task",
         element: (
           <PrivateRoute>
             <AddTask />
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: "my-posted-tasks",
+        path: "my_tasks",
         element: (
           <PrivateRoute>
             <MyPostedTask />
